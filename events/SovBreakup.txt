@@ -1,0 +1,336 @@
+add_namespace = sob
+
+#Turkmenistan Independence
+country_event = {
+	id = sob.1
+	title = sob.1.t
+	desc = sob.1.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		TMS = {
+			transfer_state = 584
+			transfer_state = 1021
+		}
+		
+			
+				SOV = {
+				country_event = {
+					id = sob.2
+					days = 14
+				} 
+				}
+			
+		
+	}
+}
+#Bukharan Independence
+country_event = {
+	id = sob.2
+	title = sob.2.t
+	desc = sob.2.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		BUK = {
+			transfer_state = 742
+			transfer_state = 1027
+			transfer_state = 830
+			transfer_state = 1020
+			transfer_state = 830
+			add_state_core = 1020
+		}
+		SOV = {
+		country_event = {
+			id = sob.4
+			days = 14
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.3
+	title = sob.3.t
+	desc = sob.3.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		TAJ = {
+			transfer_state = 742
+			transfer_state = 1027
+			transfer_state = 1026
+		}
+		SOV = {
+		country_event = {
+			id = sob.4
+			days = 14
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.4
+	title = sob.4.t
+	desc = sob.4.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		KHI = {
+			transfer_state = 831
+			transfer_state = 832
+		}
+		SOV = {
+		country_event = {
+			id = sob.5
+			days = 14
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.5
+	title = sob.5.t
+	desc = sob.5.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				TAJ = {	exists = no }
+			}
+			UZB = {
+				transfer_state = 1026
+			}
+			else = {
+				transfer_state = 830
+				transfer_state = 1020
+				add_state_core = 1020
+			}
+		}
+		UZB = {
+			transfer_state = 1024
+			transfer_state = 1025
+			transfer_state = 823
+			transfer_state = 585
+			transfer_state = 1028
+			transfer_state = 405
+		}
+		SOV = {
+		country_event = {
+			id = sob.6
+			days = 20
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.6
+	title = sob.6.t
+	desc = sob.6.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		GUR = {
+			transfer_state = 1083
+			transfer_state = 1082
+			transfer_state = 1089
+			transfer_state = 407
+			transfer_state = 406
+			add_state_core = 1083
+			add_state_core = 1082
+			add_state_core = 1089
+			add_state_core = 407
+			add_state_core = 406
+		}
+		SOV = {
+		country_event = {
+			id = sob.7
+			days = 20
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.7
+	title = sob.7.t
+	desc = sob.7.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		KYR = {
+			transfer_state = 732
+			transfer_state = 1029
+		}
+		SOV = {
+		country_event = {
+			id = sob.8
+			days = 14
+		}
+		country_event = {
+			id = sob.9
+			days = 14
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.8
+	title = sob.8.t
+	desc = sob.8.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		KAZ = {
+			transfer_state = 404
+			transfer_state = 586
+			transfer_state = 1022
+			transfer_state = 587
+			transfer_state = 402
+			transfer_state = 583
+			transfer_state = 582
+			transfer_state = 590
+			transfer_state = 588
+			transfer_state = 1023
+			transfer_state = 586
+			transfer_state = 589
+		}
+		SOV = {
+		country_event = {
+			id = sob.9
+			days = 20
+		}
+		}
+	}
+}
+country_event = {
+	id = sob.9
+	title = sob.9.t
+	desc = sob.9.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FER = {
+			transfer_state = 408
+			transfer_state = 409
+			transfer_state = 657
+			transfer_state = 560
+			transfer_state = 562
+			transfer_state = 637
+			transfer_state = 822
+		}
+		SOV = {
+			country_event = {
+				id = sob.10
+				days = 14
+			}
+		}
+	}
+}
+country_event = {
+	id = sob.10
+	title = sob.10.t
+	desc = sob.10.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FER = {
+			transfer_state = 408
+			transfer_state = 409
+			transfer_state = 657
+			transfer_state = 560
+			transfer_state = 562
+			transfer_state = 637
+			transfer_state = 822
+		}
+		SOV = {
+			country_event = {
+				id = sob.11
+				days = 14
+			}
+		}
+	}
+}
+country_event = {
+	id = sob.11
+	title = sob.11.t
+	desc = sob.11.d
+	picture = GFX_report_event_physics_lab_01
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		SOV = {
+			if = {
+				limit = {
+					NOT = { has_global_flag = flag_trotsky_dead }
+				}
+				start_civil_war = {
+					ruling_party = communism
+					ideology = communism 
+					size = 0.5
+					states = {
+						571 567 581 579 580 403 577 824 516 578 570 40 654 569 568 576 575 566 564 563 574 565 561 644 
+					}
+				}
+				random_other_country = {
+					limit = {
+						original_tag = SOV
+						has_government = communism
+					}
+					create_country_leader = {
+						name = "Leon Trotsky"
+						picture = Portrait_Leon_Trotsky
+						expire = "1965.1.1"
+						ideology = marxism
+					}
+					add_ideas = non-interference
+				}
+				else = {
+					start_civil_war = {
+					ruling_party = communism
+					ideology = neutrality
+					size = 0.5
+					states = {
+						571 567 581 579 580 403 577 824 516 578 570 40 654 569 568 576 575 566 564 563 574 565 561 644 
+					}
+					}	
+				
+				}
+				random_other_country = {
+					limit = {
+						original_tag = SOV
+						has_government = neutrality
+					}
+					add_ideas = non-interference
+				}
+			}
+			
+		}
+		SOV = {
+			country_event = {
+				id = sob.12
+				days = 14
+			}
+		}
+	}
+}

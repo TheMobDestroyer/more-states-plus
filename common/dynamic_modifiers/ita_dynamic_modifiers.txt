@@ -1,0 +1,12 @@
+
+
+ITA_lacking_industrialisation = {
+	enable = { always = yes }
+
+	icon = GFX_idea_man_five_year_plan_industry
+	
+	local_building_slots_factor = -0.5
+	state_resources_factor = -0.25
+	state_production_speed_buildings_factor = -0.3
+	local_factories = -0.5
+}

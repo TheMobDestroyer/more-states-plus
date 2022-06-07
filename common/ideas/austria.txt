@@ -1,0 +1,440 @@
+ideas = {
+	country = {
+		saint_germain = {
+			picture = HUN_treaty_of_triannon
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				production_speed_arms_factory_factor = -0.5
+				consumer_goods_factor = 0.05
+				conscription = -0.005
+			}
+		
+			
+		}
+		Frontmiliz = {
+			picture = HUN_treaty_of_triannon
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				conscription = 0.025
+			}
+		
+			
+		}
+		hardline_against_extremists = {
+			picture = SPR_anti_fascist_crusade
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_weekly = 0.001
+				communism_drift = -0.03
+				fascism_drift = -0.03
+				democratic_drift = 0.05
+			}	
+		}
+		regulate_economy = {
+			picture = tur_etatism
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.05
+			}
+		}
+		ascended_education = {
+			picture = jap_duplicate_research
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+		defensive_stratagems = {
+			picture = jap_duplicate_research
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				army_core_defence_factor = 0.1
+				army_defence_factor = 0.05
+			}
+		}
+		german_strategy_analysis = {
+			picture = MEX_politicised_army
+			allowed = {
+				
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		pan_germanism = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				
+
+			}
+		
+			available = {
+				 
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.25
+				stability_weekly = -0.002
+				stability_factor = -0.2
+				fascism_drift = 0.05
+			}
+		
+			
+		}
+		pan_germanism_2 = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				
+
+			}
+		
+			available = {
+				 
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.1
+				stability_factor = -0.1
+				fascism_drift = 0.05
+			}
+		
+			
+		}
+		austrian_catholicism = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				
+
+			}
+		
+			available = {
+				 
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.1
+			}
+		
+			
+		}
+		ff_strengthened = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				
+
+			}
+		
+			available = {
+				 
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.05
+				political_power_gain = 0.1
+				stability_factor = 0.1
+			}
+		
+			
+		}
+		imperial_legacy = {
+			picture = AUS-HUN_legacy_restored
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				monarchist_drift = 0.03
+			}
+		
+			
+		}
+		imperial_legacy_2 = {
+			picture = AUS-HUN_legacy_restored
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				monarchist_drift = 0.05
+				generate_wargoal_tension = -0.4
+			}
+		
+			
+		}
+		nazism_suppressed = {
+			picture = AUS-HUN_legacy_restored
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.1
+			}
+		
+			
+		}
+		hungarian_resistance = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				consumer_goods_factor = 0.025
+				production_speed_buildings_factor = -0.02
+			}
+		}
+		hungarian_loyalty = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor - 0.05
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.02
+			}
+		}
+		croatian_resistance = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				consumer_goods_factor = 0.025
+				production_speed_buildings_factor = -0.02
+			}	
+		}
+		croatian_loyalty = {
+			picture = hol_caved_to_the_germans
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.025
+				production_speed_buildings_factor = 0.02
+			}
+		
+			
+		}
+		habsburg_sentiment = {
+			picture = generic_monarchist_uprising
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				NOT = { has_government = monarchist }
+			}
+
+			allowed_civil_war = {
+				
+			}
+			removal_cost = -1
+			modifier = {
+				monarchist_drift = 0.2
+			}
+		
+			
+		}
+	}
+	# TECHNOLOGY
+	tank_manufacturer = {
+		
+		designer = yes
+		
+		steyr_daimler_puch = {
+			picture = generic_tank_manufacturer_1
+
+			
+			allowed = {
+				original_tag = AUS
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { tank_manufacturer }
+		}
+	}
+
+	materiel_manufacturer = {
+		
+		designer = yes
+		
+		AUS_hirtenberger = {
+			picture = generic_artillery_manufacturer_3
+
+			
+			allowed = {
+				original_tag = AUS
+			}
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+						
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

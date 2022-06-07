@@ -1,0 +1,393 @@
+﻿focus_tree = {
+	id = austrian_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AUS
+		}
+
+		#modifier = {
+		#	add = 10
+		#	original_tag = AUS
+		#	has_dlc = "Together for Victory"
+		#}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1500 }
+
+#	focus = {
+#		id = AUS_
+#		icon = GFX_goal_generic_construction
+#		prerequisite = { focus = }
+#		mutually_exclusive = { focus =  }
+#		x = -1
+#		y = 0
+#		relative_position_id = 
+#
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+	############################
+	####### ARMY SECTION #######
+	############################
+
+	focus = {
+		id = AUS_pro-austrian_propaganda
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 12
+		y = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			
+			
+		}
+	}
+	focus = {
+		id = AUS_regal_sentiment
+		icon = GFX_goal_generic_allies_build_infantry
+		x = -6
+		y = 1
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_pro-austrian_propaganda }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			
+		}
+	}
+	focus = {
+		id = AUS_repeal_habsburgergesetz
+		icon = GFX_goal_generic_allies_build_infantry
+		x = -6
+		y = 2
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_regal_sentiment }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			swap_ideas = {
+				add_idea = imperial_legacy_2
+				remove_idea = imperial_legacy
+			}
+			
+		}
+	}
+	focus = {
+		id = AUS_reinstate_habsburg_lorraine
+		icon = GFX_focus_POL_habsburg
+		x = -6
+		y = 3
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_repeal_habsburgergesetz }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			set_politics = {
+				ruling_party = monarchist
+			}
+			
+		}
+	}
+	focus = {
+		id = AUS_request_italian_protection
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 4
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
+		mutually_exclusive = { focus = AUS_submit_germany }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			ITA = { give_guarantee = AUS }
+		}
+	}
+	focus = {
+		id = AUS_submit_germany
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 2
+		y = 4
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
+		mutually_exclusive = { focus = AUS_request_italian_protection }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			GER = { 
+				set_autonomy = {
+					target = AUS
+					autonomy_state = autonomy_satellite
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_old_empire
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 2
+		y = 1
+		relative_position_id = AUS_reinstate_habsburg_lorraine
+		cost = 10
+		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			
+			
+		}
+	}
+	focus = {
+		id = AUS_demand_referendum
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 1
+		relative_position_id = AUS_old_empire
+		cost = 10
+		prerequisite = { focus = AUS_old_empire }
+		mutually_exclusive = { focus = AUS_reclaim_hungary }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			
+			
+		}
+	}
+	focus = {
+		id = AUS_reclaim_hungary
+		icon = GFX_goal_generic_allies_build_infantry
+		x = -1
+		y = 1
+		relative_position_id = AUS_old_empire
+		cost = 10
+		prerequisite = { focus = AUS_old_empire }
+		mutually_exclusive = { focus = AUS_demand_referendum}
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = HUN
+			}
+			
+		}
+	}
+	focus = {
+		id = AUS_proclaim_empire
+		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+		x = 0
+		y = 2
+		relative_position_id = AUS_old_empire
+		cost = 10
+		prerequisite = { focus = AUS_demand_referendum focus = AUS_reclaim_hungary }
+		mutually_exclusive = { focus = AUS_demand_referendum }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			set_cosmetic_tag = AUS_EMP
+			
+			add_state_core = 155
+			add_state_core = 843
+			add_state_core = 844
+			add_state_core = 154
+			add_state_core = 988
+			add_state_core = 43
+			
+		}
+	}
+
+}		

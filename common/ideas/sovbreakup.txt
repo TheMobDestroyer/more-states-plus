@@ -1,0 +1,27 @@
+ideas = {
+	country = {
+		non-interference = {
+			picture = HUN_secret_rearmament
+			allowed = {
+					
+			}
+		
+			available = {
+				OR = {
+					has_war = yes
+					has_civil_war = yes
+				}
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				join_faction_tension = 999
+				ai_get_ally_desire_factor = -10000
+			}
+		
+			
+		}
+	}
+}

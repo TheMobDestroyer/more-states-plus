@@ -1,0 +1,59 @@
+﻿division_template = {
+		name = "Azerbaijani Divisions"
+		is_locked = yes
+		division_names_group = AZR_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+		}
+}
+units = {
+	division = {
+		name = "1. Azerbaijani Division"
+		location = 1539
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "2. Azerbaijani Division"
+		location = 11674
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "3. Azerbaijani Division"
+		location = 1610
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "4. Azerbaijani Division"
+		location = 11704
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "5. Azerbaijani Division"
+		location = 1539
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "6. Azerbaijani Division"
+		location = 11674
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "7. Azerbaijani Division"
+		location = 1610
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "8. Azerbaijani Division"
+		location = 11704
+		division_template = "Royal Forces"
+	}
+}

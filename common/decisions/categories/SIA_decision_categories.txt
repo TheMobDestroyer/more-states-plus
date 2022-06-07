@@ -1,0 +1,18 @@
+SIA_territorial_reclaimation = {
+		icon = generic_prospect_for_resources
+		allowed = {
+			tag = SIA
+			}	
+		visible = {
+		has_completed_focus = SIA_reclaim_seized_territories
+	}	
+}
+SIA_foreign_expansion = {
+		icon = generic_prospect_for_resources
+		allowed = {
+			tag = SIA
+			}	
+		visible = {
+		has_completed_focus = SIA_sea_influence
+		}	
+}

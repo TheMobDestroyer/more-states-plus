@@ -1,0 +1,797 @@
+add_namespace = austria
+
+# Referendum of Independence
+country_event = {
+	id = austria.1
+	title = austria.1.t
+	desc = austria.1.d
+	picture = GFX_report_event_physics_lab_01
+
+	is_triggered_only = yes 
+	
+	option = { 
+		name = austria.1.a
+		ai_chance = { factor = 10 }
+		AUS = {
+			country_event = {
+				id = austria.3
+				days = 30
+			}
+		}
+		GER = {
+			country_event = {
+				id = austria.2
+				days = 14
+			}
+		}
+	}
+}
+
+country_event = {
+	id = austria.2
+	title = austria.2.t
+	desc = austria.2.d
+	picture = GFX_report_event_physics_lab_01
+
+	is_triggered_only = yes 
+	
+	option = {
+		# GER - mobilise armed forces!
+		name = austria.2.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100000
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 0
+				is_in_faction_with = GER
+			}
+			modifier = {
+				factor = 0
+				GER = { has_completed_focus = GER_oppose_hitler }
+			}
+		}
+		GER = {
+			annex_country = {
+				target = AUS
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = {
+					is_controlled_by = GER
+					is_core_of = AUS
+				}
+				add_core_of = GER
+			}
+		}
+	}
+	option = {
+		# GER - let it go ahead.
+		name = austria.2.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = austria.3
+	title = austria.3.t
+	desc = austria.3.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = austria.3.a
+		ai_chance = {
+			factor = 80
+
+		}
+		if = {
+			limit = {
+				AND = {
+					NOT = { HUN = { has_opinion = { target = AUS value > 75 } } }
+				}
+			}
+			random_list = {
+				70 = { HUN = { country_event = { id = austria.4 hours = 24 } } } #country votes yes
+				30 = { HUN = { country_event = { id = austria.6 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				HUN = { has_opinion = { target = AUS value > 75 } } 
+			}
+			random_list = {
+				99 = { HUN = { country_event = { id = austria.4 hours = 24 } } } #country votes yes
+				1 = { HUN = { country_event = { id = austria.6 hours = 24 } } } #country votes no
+			}
+		}
+	}
+
+	option = { #no
+		name = austria.3.b
+		ai_chance = {
+			factor = 20
+			modifier = {
+				has_government = democratic
+				factor = 0
+			}
+		}
+		AUS = { country_event = { id = austria.9 hours = 6 } }
+	}
+
+	option = { #sure, but we'll make sure it gets the right result
+		name = austria.3.c
+		ai_chance = { factor = 160 }
+		trigger = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		add_threat = -2
+		add_political_power = -50
+		HUN = { country_event = { id = austria.8 hours = 24 } }
+		set_global_flag = AUS_referendum_shenanigans
+	}
+}
+#country votes yes
+country_event = {
+	id = austria.4 
+	title = austria.4.t
+	desc = austria.4.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = austria.4.a
+		custom_effect_tooltip = GAME_OVER_TT
+		AUS = { country_event = { id = austria.5 } }
+		
+	}
+}
+#country votes yes - austria
+country_event = {
+	id = austria.5 
+	title = austria.5.t
+	desc = austria.5.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = austria.5.a
+		HUN = {
+			every_unit_leader = {
+				set_nationality = AUS
+			}
+		}
+		AUS = { annex_country = { target = HUN transfer_troops = yes } }
+		AUS = { set_country_flag = HUN_annexed_peacefully } # Used to change division name lists for HUN
+		hidden_effect = { news_event = { id = news.291 days = 1 } }
+	}
+}
+#country votes no
+country_event = {
+	id = austria.6
+	title = austria.6.t
+	desc = austria.6.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = austria.6.a
+		AUS = { country_event = { id = austria.7 } }
+	}
+}
+#country votes no - hungary
+country_event = {
+	id = austria.7
+	title = austria.7.t
+	desc = austria.7.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #TO WAR
+		name = austria.7.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				has_global_flag = AUS_referendum_shenanigans
+				factor = 2
+			}
+		}
+		create_wargoal = {
+					type = annex_everything
+					target = HUN
+				}
+		hidden_effect = { news_event = { id = news.294 days = 1 } }
+		
+	}
+	option = { #Let it go
+		name = austria.7.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				HUN = { is_in_faction = yes }
+				factor = 3
+			}
+		}
+		hidden_effect = { news_event = { id = news.293 days = 1 } }
+	}
+
+}
+#Cheat on the Referendum
+country_event = {
+	id = austria.8
+	title = austria.8.t
+	desc = austria.8.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #say no
+		name = austria.8.a
+		ai_chance = {
+			factor = 80
+		}
+		AUS = { country_event = { id = austria.7 } }
+		
+	}
+	option = { #say yes
+		name = austria.8.b
+		ai_chance = {
+			factor = 20 #brilliant plan
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+		AUS = { country_event = { id = austria.5 } }
+		hidden_effect = { news_event = { id = news.292 days = 1 } }
+	}
+
+}
+#Hungary refuses
+country_event = {
+	id = austria.9
+	title = austria.9.t
+	desc = austria.9.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #TO WAR
+		name = austria.9.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				HUN = {
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				factor = 3
+			}
+			modifier = {
+				HUN = { is_in_faction = no }
+				factor = 3
+			}
+			modifier = {
+				strength_ratio = { tag = HUN ratio > 1 }
+				factor = 2
+			}
+		}
+		create_wargoal = {
+					type = annex_everything
+					target = HUN
+				}
+		hidden_effect = { news_event = { id = news.315 days = 1 } }
+		
+	}
+	option = { #Let it go
+		name = austria.9.b
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
+#Croatian resistance
+country_event = {
+	id = austria.10
+	title = austria.10.t
+	desc = austria.10.desc
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes
+	trigger = {
+		AUS = {
+			owns_state = 109
+			owns_state = 931
+		}
+	}
+	immediate = {
+		add_ideas = croatian_resistance
+	}
+	option = {
+		name = austria.10.a
+		add_ideas = croatian_resistance
+	}
+}
+
+#####################
+## DEMAND SLOVENIA ##
+#####################
+
+#demand slovenia
+country_event = {
+	id = austria.11
+	title = austria.11.t
+	desc = austria.11.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #No
+		name = austria.11.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 900
+				is_in_faction = yes
+			}
+		}
+		country_event = {
+			id = austria.13
+		}
+	}
+	option = { #ok fine
+		name = austria.11.b
+		ai_chance = {
+			factor = 99
+		}
+		AUS = {
+			country_event = {
+				id = austria.12
+			}
+		}
+	}
+}
+#demand slovenia - accepted
+country_event = {
+	id = austria.12
+	title = austria.12.t
+	desc = austria.12.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #ok fine
+		name = austria.12.a
+		ai_chance = {
+			factor = 100
+		}
+		AUS = {
+			transfer_state = 102
+			transfer_state = 838
+			transfer_state = 839
+		}
+	}
+}
+#demand slovenia - denied
+country_event = {
+	id = austria.13
+	title = austria.13.t
+	desc = austria.13.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #to war!
+		name = austria.13.a
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_on = YUG
+	}
+	option = { #let it go
+		name = austria.13.b
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = -100
+	}
+}
+
+#########################
+## DEMAND TRANSYLVANIA ##
+#########################
+
+#demand transylvania
+country_event = {
+	id = austria.14
+	title = austria.14.t
+	desc = austria.14.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #No
+		name = austria.14.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 900
+				is_in_faction = yes
+			}
+		}
+		country_event = {
+			id = austria.16
+		}
+	}
+	option = { #ok fine
+		name = austria.14.b
+		ai_chance = {
+			factor = 99
+		}
+		AUS = {
+			country_event = {
+				id = austria.15
+			}
+		}
+	}
+}
+#demand transylvania - accepted
+country_event = {
+	id = austria.15
+	title = austria.15.t
+	desc = austria.15.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #ok fine
+		name = austria.15.a
+		ai_chance = {
+			factor = 100
+		}
+		BUC = {
+			transfer_state = 1154
+			transfer_state = 80
+		}
+		puppet = BUC
+		AUS = {
+			transfer_state = 76
+			transfer_state = 933
+			transfer_state = 84
+			transfer_state = 83
+			transfer_state = 82
+		}
+	}
+}
+#demand transylvania - denied
+country_event = {
+	id = austria.16
+	title = austria.16.t
+	desc = austria.16.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #to war!
+		name = austria.16.a
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_on = ROM
+	}
+	option = { #let it go
+		name = austria.16.b
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = -100
+	}
+}
+####################
+## DEMAND GALICIA ##
+####################
+
+#demand galicia
+country_event = {
+	id = austria.17
+	title = austria.17.t
+	desc = austria.17.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #No
+		name = austria.17.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 900
+				is_in_faction = yes
+			}
+		}
+		AUS = {
+			country_event = {
+				id = austria.19
+			}
+		}
+	}
+	option = { #ok fine
+		name = austria.17.b
+		ai_chance = {
+			factor = 99
+		}
+		AUS = {
+			country_event = {
+				id = austria.18
+			}
+		}
+	}
+}
+#demand galicia - accepted
+country_event = {
+	id = austria.18
+	title = austria.18.t
+	desc = austria.18.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #ok fine
+		name = austria.18.a
+		ai_chance = {
+			factor = 100
+		}
+		AUS = {
+			transfer_state = 88
+			transfer_state = 91
+			transfer_state = 89
+			transfer_state = 885
+		}
+	}
+}
+#demand galicia - denied
+country_event = {
+	id = austria.19
+	title = austria.19.t
+	desc = austria.19.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #to war!
+		name = austria.19.a
+		ai_chance = {
+			factor = 1
+		}
+		declare_war_on = POL
+	}
+	option = { #let it go
+		name = austria.19.b
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = -100
+	}
+}
+#austria invades sudetenland
+country_event = {
+	id = austria.20
+	title = austria.20.t
+	desc = austria.20.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #to war!
+		name = austria.20.a
+		ai_chance = {
+			factor = 10
+		}
+		CZE = { 
+			declare_war_on = {
+				target = AUS
+				type = take_state_focus 
+				generator = { 69 845 74 }
+			} 
+		}
+	}
+	option = { #let them have it
+		name = austria.20.b
+		ai_chance = {
+			factor = 2
+		}
+		FROM = {
+			transfer_state = 69
+			transfer_state = 74
+			transfer_state = 845 
+		}
+	}
+}
+#austria occupies prague and sudetenland - peace
+country_event = {
+	id = austria.21
+	title = austria.21.t
+	desc = austria.21.desc
+	picture = GFX_report_event_election_vote
+	trigger = {
+		tag = AUS
+		has_completed_focus = AUS_march_north
+		CZE = {
+			surrender_progress > 0.50
+		}
+	}
+	fire_only_once = yes
+	option = { #victory!
+		name = austria.21.a
+		ai_chance = {
+			factor = 10
+		}
+		AUS = { white_peace = CZE } 
+		transfer_state = 845
+		transfer_state = 74
+		transfer_state = 69
+	}
+}
+########################
+## DEMAND SWITZERLAND ##
+########################
+
+#demand switzerland
+country_event = {
+	id = austria.22
+	title = austria.22.t
+	desc = austria.22.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #No
+		name = austria.22.a
+		ai_chance = {
+			factor = 1
+		}
+		AUS = {
+			country_event = {
+				id = austria.24
+			}
+		}
+	}
+	option = { #ok fine
+		name = austria.22.b
+		ai_chance = {
+			factor = 100
+		}
+		AUS = {
+			country_event = {
+				id = austria.23
+			}
+		}
+	}
+}
+#demand switzerland - accepted
+country_event = {
+	id = austria.23
+	title = austria.23.t
+	desc = austria.23.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #ok fine
+		name = austria.23.a
+		ai_chance = {
+			factor = 100
+		}
+		AUS = {
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+		}
+	}
+}
+#demand switzerland - denied
+country_event = {
+	id = austria.24
+	title = austria.24.t
+	desc = austria.24.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #to war!
+		name = austria.24.a
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_on = FROM
+	}
+	option = { #let it go
+		name = austria.24.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -100
+	}
+}
+########################
+## DEMAND SUBJUGATION ##
+########################
+
+#demand subjugation
+country_event = {
+	id = austria.25
+	title = austria.25.t
+	desc = austria.25.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = { #No
+		name = austria.25.a
+		ai_chance = {
+			factor = 1
+		}
+		AUS = {
+			country_event = {
+				id = austria.27
+			}
+		}
+	}
+	option = { #ok fine
+		name = austria.25.b
+		ai_chance = {
+			factor = 100
+		}
+		AUS = {
+			country_event = {
+				id = austria.26
+			}
+		}
+	}
+}
+#demand subjugation - accepted
+country_event = {
+	id = austria.26
+	title = austria.26.t
+	desc = austria.26.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #ok fine
+		name = austria.26.a
+		ai_chance = {
+			factor = 100
+		}
+		AUS = {
+			puppet = FROM
+		}
+	}
+}
+#demand subjugation - denied
+country_event = {
+	id = austria.27
+	title = austria.27.t
+	desc = austria.27.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #to war!
+		name = austria.27.a
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_on = FROM
+	}
+	option = { #let it go
+		name = austria.27.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -100
+	}
+}

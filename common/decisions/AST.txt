@@ -1,0 +1,49 @@
+AST_emu_category = {
+	AST_emu_crisis = {
+		allowed = { tag = AST }
+		available = { always = no }
+		is_good = no
+		days_mission_timeout = 420
+		timeout_effect = {
+			EMU = {
+				transfer_state = 522
+				add_state_core = 522
+			}
+			declare_war_on = {
+				target = AST
+				type = annex_everything
+			}
+			add_civil_war_target = AST
+		}
+		
+	}
+	AST_establish_weapon = {
+		allowed = { tag = AST }
+		available = { 
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		
+		
+	}
+	AST_establish_weapon2 = {
+		allowed = { tag = AST }
+		available = { 
+			
+		}
+		complete_effect = {
+			EMU = {
+				transfer_state = 522
+				add_state_core = 522
+				add_civil_war_target = AST
+			declare_war_on = {
+				target = AST
+				type = annex_everything
+			}
+			
+			}
+		}
+		
+	}
+}

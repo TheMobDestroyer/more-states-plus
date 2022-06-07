@@ -1,0 +1,18 @@
+ITA_southern_industrialisation = {
+		icon = generic_prospect_for_resources
+		allowed = {
+			tag = ITA
+			
+			}	
+		visible = {
+		has_completed_focus = ITA_cassa_per_il_mezzogiorno
+	}	
+}
+D05_austrian_reunification = {
+		icon = generic_prospect_for_resources
+		allowed = {
+			cosmetic_tag = AUS
+			NOT = { tag = AUS }
+			}	
+			
+}

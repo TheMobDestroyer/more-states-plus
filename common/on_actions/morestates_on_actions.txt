@@ -1,0 +1,71 @@
+on_actions = {
+	on_startup = {
+		effect = {
+		every_state = {
+				limit = {
+					OR = {
+					state = 157
+					state = 117
+					state = 156
+					state = 115						
+					state = 941
+					state = 942
+					state = 940
+					}
+					}
+				add_dynamic_modifier = { modifier = ITA_weak_southern_industry }
+				}
+		
+		
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					tag = ITA
+					divisions_in_state = { state = FROM.FROM size > 0 }
+					FROM = {
+						original_tag = ITA
+						has_government = fascism
+						has_civil_war = yes
+					}
+				}
+				FROM.FROM = { 
+					set_state_flag = mussolini_state_withdrawn
+					random_list = {
+						20 = {
+							set_state_flag = mussolini_state_withdrawn1
+						}
+						20 = {
+							set_state_flag = mussolini_state_withdrawn2
+						}
+						20 = {
+							set_state_flag = mussolini_state_withdrawn3
+						}
+						20 = {
+							set_state_flag = mussolini_state_withdrawn4
+						}
+						20 = {
+							set_state_flag = mussolini_state_withdrawn5
+						}
+					}
+					state_event = { id = wtt_germany.49 trigger_for = controller }
+				}
+			}
+		}
+	}
+	on_peaceconference_ended = {
+		effect = { 
+			FROM = { #Credit goes to https://steamcommunity.com/sharedfiles/filedetails/?id=2746896500 for this (If i don't remember to put it in the credits remind me)
+				set_temp_variable = { FLT_threat_neg = 0 }
+				subtract_from_temp_variable = { FLT_threat_neg = has_added_tension_amount }
+				
+				add_named_threat = {
+					threat = FLT_threat_neg
+					name = FLT_lost
+				}
+			}
+		}
+	}
+} 

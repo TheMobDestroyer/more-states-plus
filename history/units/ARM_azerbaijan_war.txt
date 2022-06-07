@@ -1,0 +1,59 @@
+﻿division_template = {
+		name = "Armenian Divisions"
+		is_locked = yes
+		division_names_group = ARM_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+		}
+}
+units = {
+	division = {
+		name = "1. Armenian Division"
+		location = 11708
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "2. Armenian Division"
+		location = 12450
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "3. Armenian Division"
+		location = 1467
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "4. Armenian Division"
+		location = 13284
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "5. Armenian Division"
+		location = 13285
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "6. Armenian Division"
+		location = 9715
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "7. Armenian Division"
+		location = 13285
+		division_template = "Royal Forces"
+	}
+	division = {
+		name = "8. Armenian Division"
+		location = 13284
+		division_template = "Royal Forces"
+	}
+}

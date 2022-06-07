@@ -1,0 +1,25 @@
+ideas = {
+	country = {
+		anglo-egyptian_sudan = {
+			picture = generic_goods_red_bonus
+			allowed = {
+				original_tag = SUD
+				is_puppet_of = ENG
+					
+			}
+		
+			available = {
+				is_puppet_of = ENG
+			}
+
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.1
+			}
+		
+			
+		}
+	}
+}

@@ -1,0 +1,38 @@
+AUS_puppet_decisions = {
+	AUS_puppet_CZE = {
+		allowed = { 
+			tag = AUS 
+			has_completed_focus = AUS_cze_coup
+		}
+		available = { 
+			CZE = {
+				exists = yes
+				has_civil_war = no
+				has_government = monarchist
+			}
+		}
+		complete_effect = {
+			puppet = CZE
+		}
+	}
+	AUS_annex_BUC = {
+		allowed = { 
+			tag = AUS 
+			has_completed_focus = AUS_demand_transylvania
+		}
+		available = { 
+			BUC = {
+				exists = yes
+				is_puppet_of = AUS
+			}
+			owns_state = 88
+			owns_state = 76
+		}
+		complete_effect = {
+			annex_country = {
+				target = BUC
+				transfer_troops = yes
+			}
+		}
+	}
+}
