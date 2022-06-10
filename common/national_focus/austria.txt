@@ -99,7 +99,7 @@
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
 		prerequisite = { focus = AUS_pro-austrian_propaganda }
-		mutually_exclusive = { focus = AUS_strengthen_fatherland_front }
+		mutually_exclusive = { focus = AUS_strengthen_fatherland_front focus = AUS_deradicalise_regime }
 		ai_will_do = {
 			factor = 1
 		}
@@ -196,8 +196,8 @@
 		y = 4
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
-		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
-		mutually_exclusive = { focus = AUS_submit_germany }
+		prerequisite = { focus = AUS_reinstate_habsburg_lorraine focus = AUS_distinguish_austria }
+		mutually_exclusive = { focus = AUS_submit_germany  }
 		ai_will_do = {
 			factor = 1
 		}
@@ -226,8 +226,8 @@
 		y = 4
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
-		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
-		mutually_exclusive = { focus = AUS_request_italian_protection }
+		prerequisite = { focus = AUS_reinstate_habsburg_lorraine focus = AUS_distinguish_austria }
+		mutually_exclusive = { focus = AUS_request_italian_protection  focus = AUS_germans_against_germany }
 		ai_will_do = {
 			factor = 1
 		}
@@ -877,7 +877,7 @@
 		}
 	}
 	focus = {
-		id = AUS_invite_greece
+		id = AUS_invite_bulgaria
 		icon = GFX_focus_generic_befriend_bulgaria
 		x = 0
 		y = 2
@@ -1304,6 +1304,7 @@
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
 		prerequisite = { focus = AUS_pro-austrian_propaganda }
+		mutually_exclusive = { focus = AUS_regal_sentiment focus = AUS_deradicalise_regime }
 		ai_will_do = {
 			factor = 1
 		}
@@ -1322,6 +1323,367 @@
 
 		completion_reward = {
 			
+		}
+	}
+	focus = {
+		id = AUS_promote_catholicism
+		icon = GFX_AUS_HUN_CRO
+		x = 5
+		y = 2
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_strengthen_fatherland_front }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_austro-fascism
+		icon = GFX_AUS_HUN_CRO
+		x = 7
+		y = 2
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_strengthen_fatherland_front }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_distinguish_austria
+		icon = GFX_AUS_HUN_CRO
+		x = 6
+		y = 3
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_promote_catholicism  }
+		prerequisite = { focus = AUS_austro-fascism }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_germans_against_germany
+		icon = GFX_AUS_HUN_CRO
+		x = 2
+		y = 1
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_distinguish_austria }
+		mutually_exclusive = { focus = AUS_submit_germany focus = AUS_support_sudetens }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_switzerland_friendship_treaty
+		icon = GFX_AUS_HUN_CRO
+		x = 2
+		y = 2
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_germans_against_germany }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_formalise_alliance
+		icon = GFX_AUS_HUN_CRO
+		x = 4
+		y = 3
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_switzerland_friendship_treaty }
+		mutually_exclusive = { focus = AUS_demand_integration }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_demand_integration
+		icon = GFX_AUS_HUN_CRO
+		x = 2
+		y = 3
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_switzerland_friendship_treaty }
+		mutually_exclusive = { focus = AUS_formalise_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_formalise_annexation
+		icon = GFX_AUS_HUN_CRO
+		x = 2
+		y = 4
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_demand_integration }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_support_sudetens
+		icon = GFX_AUS_HUN_CRO
+		x = 8
+		y = 1
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_distinguish_austria }
+		mutually_exclusive = { focus = AUS_germans_against_germany }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_arm_resistance
+		icon = GFX_AUS_HUN_CRO
+		x = 8
+		y = 2
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_support_sudetens }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_state_core = 845
+			add_state_core = 69
+			add_state_core = 74
+			CZE = {
+				remove_state_core = 845
+				remove_state_core = 69
+				remove_state_core = 74
+			}
+		}
+	}
+	focus = {
+		id = AUS_march_north
+		icon = GFX_AUS_HUN_CRO
+		x = 8
+		y = 3
+		relative_position_id = AUS_distinguish_austria
+		cost = 10
+		prerequisite = { focus = AUS_arm_resistance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			transfer_state = 845
+			CZE = {
+				country_event = {
+					id = austria.20
+					days = 2
+				}	
+			}
+		}
+	}
+	focus = {
+		id = AUS_deradicalise_regime
+		icon = GFX_AUS_HUN_CRO
+		x = 20
+		y = 1
+		relative_position_id = AUS_pro-austrian_propaganda
+		cost = 10
+		prerequisite = { focus = AUS_pro-austrian_propaganda }
+		mutually_exclusive = { focus = AUS_strengthen_fatherland_front focus = AUS_regal_sentiment }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			transfer_state = 845
+			CZE = {
+				country_event = {
+					id = austria.20
+					days = 2
+				}	
+			}
 		}
 	}
 }		
