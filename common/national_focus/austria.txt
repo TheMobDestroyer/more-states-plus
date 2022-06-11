@@ -1560,13 +1560,16 @@
 		y = 1
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
-		prerequisite = { focus = AUS_distinguish_austria }
+		prerequisite = { focus = AUS_distinguish_austria focus = AUS_hold_elections }
 		mutually_exclusive = { focus = AUS_germans_against_germany }
 		ai_will_do = {
 			factor = 1
 		}
 		available = {
-			
+			OR = {
+				has_government = fascism
+				has_country_flag = CS_VICTORY
+			}
 		}
 		
 		bypass = {
@@ -1677,13 +1680,64 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			transfer_state = 845
-			CZE = {
-				country_event = {
-					id = austria.20
-					days = 2
-				}	
-			}
+			
+		}
+	}
+	focus = {
+		id = AUS_allow_opposition_parties
+		icon = GFX_AUS_HUN_CRO
+		x = -1
+		y = 1
+		relative_position_id = AUS_deradicalise_regime
+		cost = 10
+		prerequisite = { focus = AUS_deradicalise_regime }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = AUS_hold_elections
+		icon = GFX_AUS_HUN_CRO
+		x = 0
+		y = 2
+		relative_position_id = AUS_deradicalise_regime
+		cost = 10
+		prerequisite = { focus = AUS_allow_opposition_parties }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
 		}
 	}
 }		
