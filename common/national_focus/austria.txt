@@ -1560,7 +1560,7 @@
 		y = 1
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
-		prerequisite = { focus = AUS_distinguish_austria focus = AUS_hold_elections }
+		prerequisite = { focus = AUS_distinguish_austria }
 		mutually_exclusive = { focus = AUS_germans_against_germany }
 		ai_will_do = {
 			factor = 1
@@ -1720,6 +1720,65 @@
 		relative_position_id = AUS_deradicalise_regime
 		cost = 10
 		prerequisite = { focus = AUS_allow_opposition_parties }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			country_event = {
+				id = austria.28
+				days = 2
+			}
+		}
+	}
+	focus = {
+		id = AUS_sdapo_victory
+		icon = GFX_AUS_HUN_CRO
+		x = 0
+		y = 1
+		relative_position_id = AUS_hold_elections
+		cost = 10
+		prerequisite = { focus = AUS_hold_elections }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_sdapo_victory
+		icon = GFX_AUS_HUN_CRO
+		x = 0
+		y = 1
+		relative_position_id = AUS_hold_elections
+		cost = 10
+		prerequisite = { focus = AUS_hold_elections }
 		ai_will_do = {
 			factor = 1
 		}

@@ -808,3 +808,60 @@ country_event = {
 		add_political_power = -100
 	}
 }
+#elections
+country_event = {
+	id = austria.28
+	title = austria.28.t
+	desc = austria.28.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #fascists
+		name = austria.28.a
+		ai_chance = {
+			factor = 100
+		}
+		unlock_national_focus = AUS_distinguish_austria
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.5
+		}
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = yes
+			last_election = "1935.12.17"
+			election_frequency = 48
+		}
+		set_country_flag = CS_VICTORY
+	}
+	option = { #democrats
+		name = austria.28.b
+		ai_chance = {
+			factor = 0
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+		add_political_power = 50
+		add_stability = 0.1
+		set_country_flag = SDAPO_VICTORY
+	}
+	option = { #communists
+		name = austria.28.c
+		ai_chance = {
+			factor = 0
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = yes
+			last_election = "1935.12.17"
+			election_frequency = 48
+		}
+		set_country_flag = KPO_VICTORY
+	}
+}
