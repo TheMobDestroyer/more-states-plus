@@ -1799,4 +1799,511 @@
 			
 		}
 	}
+	focus = {
+		id = AUS_sdapo_victory
+		icon = GFX_AUS_HUN_CRO
+		x = 0
+		y = 1
+		relative_position_id = AUS_hold_elections
+		cost = 10
+		prerequisite = { focus = AUS_hold_elections }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_limit_corporate_power
+		icon = GFX_AUS_HUN_CRO
+		x = -1
+		y = 1
+		relative_position_id = AUS_sdapo_victory
+		cost = 10
+		prerequisite = { focus = AUS_sdapo_victory }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_request_british_protection
+		icon = GFX_focus_chi_british_cooperation
+		x = 0
+		y = 2
+		relative_position_id = AUS_sdapo_victory
+		cost = 10
+		prerequisite = { focus = AUS_limit_corporate_power }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_defensive_stratagems
+		icon = GFX_goal_generic_defence
+		x = -2
+		y = 1
+		relative_position_id = AUS_request_british_protection
+		cost = 10
+		prerequisite = { focus = AUS_request_british_protection }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = defensive_stratagems
+		}
+	}
+	focus = {
+		id = AUS_defensive_stratagem
+		icon = GFX_goal_generic_defence
+		x = 2
+		y = 1
+		relative_position_id = AUS_request_british_protection
+		cost = 10
+		prerequisite = { focus = AUS_request_british_protection }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = defensive_stratagems
+		}
+	}
+	focus = {
+		id = AUS_join_uk
+		icon = GFX_focus_chi_british_cooperation
+		x = -1
+		y = 2
+		relative_position_id = AUS_request_british_protection
+		cost = 10
+		prerequisite = { focus = AUS_defensive_stratagems focus = AUS_defensive_stratagem }
+		mutually_exclusive = { focus = AUS_little_entente }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			ENG = {
+				country_event = {
+					id = generic.2
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_little_entente
+		icon = GFX_focus_generic_little_entente
+		x = 1
+		y = 2
+		relative_position_id = AUS_request_british_protection
+		cost = 10
+		prerequisite = { focus = AUS_defensive_stratagems focus = AUS_defensive_stratagem }
+		mutually_exclusive = { focus = AUS_join_uk }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = {
+				limit = {
+					CZE = {
+						has_completed_focus = CZE_an_entente_of_our_own
+					}
+				}
+				CZE = {
+					country_event = {
+						id = generic.2
+						days = 2
+					}
+				}
+				else = {
+					set_rule = { can_create_factions = yes }
+					create_faction = "Little Entente"
+				}
+			}
+			if = {
+				limit = {
+					CZE = {
+						exists = yes
+						is_in_faction = no
+						is_puppet = no
+					}
+				}
+				CZE = {
+					country_event = {
+						id = generic.5
+						days = 2
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_invite_romania
+		icon = GFX_focus_invite_romania
+		x = 2
+		y = 1
+		relative_position_id = AUS_little_entente
+		cost = 10
+		prerequisite = { focus = AUS_little_entente }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			ROM = {
+				OR = {
+					exists = no
+					is_in_faction = yes
+					is_puppet = yes
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			ROM = {
+				country_event = {
+					id = generic.5
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_invite_yugoslavia
+		icon = GFX_focus_invite_yugoslavia
+		x = 2
+		y = 2
+		relative_position_id = AUS_little_entente
+		cost = 10
+		prerequisite = { focus = AUS_invite_romania }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			YUG = {
+				OR = {
+					exists = no
+					is_in_faction = yes
+					is_puppet = yes
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			YUG = {
+				country_event = {
+					id = generic.5
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_topple_horthy
+		icon = GFX_focus_hun_assassinate_horthy
+		x = -1
+		y = 1
+		relative_position_id = AUS_little_entente
+		cost = 10
+		prerequisite = { focus = AUS_little_entente focus = AUS_join_uk }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			NOT = {
+				HUN = {
+					has_character = HUN_miklos_horthy
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = topple_government
+				target = HUN
+			}
+		}
+	}
+	focus = {
+		id = AUS_topple_mussolini
+		icon = GFX_focus_ger_assassinate_mussolini
+		x = -1
+		y = 2
+		relative_position_id = AUS_little_entente
+		cost = 10
+		prerequisite = { focus = AUS_topple_horthy }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			NOT = {
+				ITA = {
+					has_character = ITA_benito_mussolini
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = topple_government
+				target = ITA
+			}
+		}
+	}
+	focus = {
+		id = AUS_protect_german_catholics
+		icon = GFX_focus_ger_oppose_hitler
+		x = 0
+		y = 1
+		relative_position_id = AUS_topple_mussolini
+		cost = 10
+		prerequisite = { focus = AUS_topple_mussolini }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_state_claim = 52
+			add_state_claim = 993
+			add_state_claim = 994
+			add_state_claim = 53
+			add_state_claim = 54
+			add_state_claim = 50
+			add_state_claim = 995
+			add_state_claim = 945
+			add_state_claim = 847
+			add_state_claim = 42
+			add_state_claim = 1085
+			add_state_claim = 51
+			add_state_claim = 846
+		}
+	}
+	focus = {
+		id = AUS_analyse_german_strategies
+		icon = GFX_goal_generic_army_doctrines
+		x = -2
+		y = 1
+		relative_position_id = AUS_protect_german_catholics
+		cost = 10
+		prerequisite = { focus = AUS_protect_german_catholics }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = german_strategy_analysis
+		}
+	}
+	focus = {
+		id = AUS_anti-german_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 2
+		y = 1
+		relative_position_id = AUS_protect_german_catholics
+		cost = 10
+		prerequisite = { focus = AUS_protect_german_catholics }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
+		}
+	}
+	focus = {
+		id = AUS_anti-german_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 2
+		relative_position_id = AUS_protect_german_catholics
+		cost = 10
+		prerequisite = { focus = AUS_anti-german_propaganda }
+		prerequisite = { focus = AUS_analyse_german_strategies  }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
+		}
+	}
 }		

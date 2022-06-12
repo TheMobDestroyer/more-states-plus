@@ -101,7 +101,7 @@ ideas = {
 			}
 		}
 		defensive_stratagems = {
-			picture = jap_duplicate_research
+			picture = YUG_federal_defense_council
 			allowed = {
 				
 
