@@ -93,11 +93,11 @@
 	}
 	focus = {
 		id = AUS_regal_sentiment
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_focus_generic_monarchy_2
 		x = -6
 		y = 1
 		relative_position_id = AUS_pro-austrian_propaganda
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_pro-austrian_propaganda }
 		mutually_exclusive = { focus = AUS_strengthen_fatherland_front focus = AUS_deradicalise_regime }
 		ai_will_do = {
@@ -118,13 +118,17 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = monarchist
+				popularity = 0.1
+			}
+			add_political_power = 50
 			
 		}
 	}
 	focus = {
 		id = AUS_repeal_habsburgergesetz
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_focus_renounce_the_treaty_of_trianon
 		x = -6
 		y = 2
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -149,6 +153,10 @@
 
 		completion_reward = {
 			
+			add_popularity = {
+				ideology = monarchist
+				popularity = 0.1
+			}
 			swap_ideas = {
 				add_idea = imperial_legacy_2
 				remove_idea = imperial_legacy
@@ -182,9 +190,13 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
 			set_politics = {
 				ruling_party = monarchist
+			}
+			create_country_leader = {
+				name = "Otto von Habsburg"
+				picture = GFX_Portrait_hungary_otto_von_hapsburg
+				ideology=monarchist_subtype
 			}
 			
 		}
@@ -217,11 +229,13 @@
 
 		completion_reward = {
 			ITA = { give_guarantee = AUS }
+			custom_effect_tooltip = AUS_anschluss_bypass_tt
+			set_global_flag = AUS_ANSCH_BYPASS
 		}
 	}
 	focus = {
 		id = AUS_submit_germany
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_focus_CZE_german_puppet
 		x = 2
 		y = 4
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -252,11 +266,13 @@
 					autonomy_state = autonomy_satellite
 				}
 			}
+			custom_effect_tooltip = AUS_anschluss_bypass_tt
+			set_global_flag = AUS_ANSCH_BYPASS
 		}
 	}
 	focus = {
 		id = AUS_old_empire
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
 		x = 2
 		y = 1
 		relative_position_id = AUS_reinstate_habsburg_lorraine
@@ -287,7 +303,7 @@
 	}
 	focus = {
 		id = AUS_demand_referendum
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_goal_generic_forceful_treaty
 		x = 1
 		y = 1
 		relative_position_id = AUS_old_empire
@@ -312,14 +328,15 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
-			
+			country_event = {
+				id = austria.3
+				days = 2
+			}
 		}
 	}
 	focus = {
 		id = AUS_reclaim_hungary
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_goal_generic_territory_or_war
 		x = -1
 		y = 1
 		relative_position_id = AUS_old_empire
@@ -380,7 +397,7 @@
 		completion_reward = {
 			
 			set_cosmetic_tag = AUS_EMP
-			
+			add_ideas = hungarian_resistance
 			add_state_core = 155
 			add_state_core = 843
 			add_state_core = 844
@@ -453,8 +470,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			YUG = {
+				country_event = {
+					id = austria.11
+				}
+			}
 			
 		}
 	}
@@ -483,14 +503,36 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
-			
+			create_wargoal = {
+				type = annex_everything
+				target = YUG
+			}
+			add_ideas = croatian_resistance
+			custom_effect_tooltip = AUS_YUG_cores_tt
+			hidden_effect = {
+			add_state_core = 102
+			add_state_core = 839
+			add_state_core = 838
+			add_state_core = 103
+			add_state_core = 992
+			add_state_core = 109
+			add_state_core = 930
+			add_state_core = 929
+			add_state_core = 842
+			add_state_core = 45
+			add_state_core = 764
+			add_state_core = 841
+			add_state_core = 104
+			add_state_core = 840
+			add_state_core = 804
+			add_state_core = 931
+			add_state_core = 990
+			}
 		}
 	}
 	focus = {
 		id = AUS_establish_autonomous_serbia
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_generic_treaty
 		x = 0
 		y = 2
 		relative_position_id = AUS_demand_slovenia
@@ -660,7 +702,7 @@
 		x = -5
 		y = 1
 		relative_position_id = AUS_proclaim_empire
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_proclaim_empire }
 		ai_will_do = {
 			factor = 1
@@ -679,8 +721,9 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			CZE = {
+				add_ideas = habsburg_sentiment
+			}
 			
 		}
 	}
@@ -709,14 +752,56 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			custom_effect_tooltip = AUS_CZE_coup_tt
+			if = {
+				limit = {
+					CZE = {
+						monarchist < 30
+					}
+				}
+				start_civil_war = {
+					ideology = monarchist
+					size = 0.6
+					states = { 70 664 71 73 72 845 }
+				}
+				
+			}
+			if = {
+				limit = {
+					CZE = {
+						monarchist < 40
+						monarchist > 30
+					}
+				}
+				puppet = CZE
+			}
+			if = {
+				limit = {
+					CZE = {
+						monarchist > 40
+					}
+				}
+				annex_country = {
+					target = CZE
+					transfer_troops = yes
+				}
+				add_state_core = 73
+				add_state_core = 71
+				add_state_core = 70
+				add_state_core = 72
+				add_state_core = 664
+				add_state_core = 75
+				add_state_core = 74
+				add_state_core = 69
+				add_state_core = 9
+				add_state_core = 845
+			}
 			
 		}
 	}
 	focus = {
 		id = AUS_demand_transylvania
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_focus_YUG_autonomous_transylvania
 		x = -7
 		y = 1
 		relative_position_id = AUS_proclaim_empire
@@ -739,14 +824,24 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
-			
+			add_state_claim = 84
+			add_state_claim = 1154
+			add_state_claim = 80
+			add_state_claim = 83
+			add_state_claim = 82
+			add_state_core = 76
+			add_state_core = 933
+			ROM = {
+				country_event = {
+					id = austria.14
+					days = 2
+				}
+			}
 		}
 	}
 	focus = {
 		id = AUS_integrate_transylvania
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_focus_YUG_autonomous_transylvania
 		x = -7
 		y = 2
 		relative_position_id = AUS_proclaim_empire
@@ -773,15 +868,30 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
-			
+			84 = {
+				add_core_of = ROM
+				add_manpower = -300000
+			}
+			83 = {
+				add_core_of = ROM
+				add_manpower = -100000
+			}
+			82 = {
+				add_core_of = ROM
+				add_manpower = -150000
+			}
+			79 = {
+				add_manpower = 350000
+			}
+			46 = {
+				add_manpower = 200000
+			}
 		}
 	}
 	
 	focus = {
 		id = AUS_demand_galicia
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_goal_generic_demand_territory
 		x = -9
 		y = 1
 		relative_position_id = AUS_proclaim_empire
@@ -804,14 +914,23 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
-			
+			POL = {
+				country_event = {
+					id = austria.17
+					days = 2
+				}
+			}
+			add_state_core = 885
+			add_state_core = 88
+			add_state_core = 1110
+			add_state_core = 1109
+			add_state_core = 91
+			add_state_core = 89
 		}
 	}
 	focus = {
 		id = AUS_form_pact
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_goal_tripartite_pact
 		x = 2
 		y = 1
 		relative_position_id = AUS_proclaim_empire
@@ -981,7 +1100,7 @@
 	}
 	focus = {
 		id = AUS_prepare_italian_coup
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_goal_generic_military_deal
 		x = 6
 		y = 1
 		relative_position_id = AUS_proclaim_empire
@@ -1005,13 +1124,18 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			ITA = {
+				country_event = {
+					id = wtt_germany.8
+					days = 2
+				}
+				add_ideas = habsburg_sentiment
+			}
 		}
 	}
 	focus = {
 		id = AUS_overthrow_mussolini
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_focus_ger_assassinate_mussolini
 		x = 6
 		y = 2
 		relative_position_id = AUS_proclaim_empire
@@ -1034,13 +1158,31 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			ITA = {
+				set_politics = {
+					ruling_party = monarchist
+				}
+				add_popularity = {
+					ideology = monarchist
+					popularity = 0.1
+				}
+				create_country_leader = {
+					name = "Victor Emmanuel III"
+					desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+					picture = "GFX_portrait_italy_victor_emmanuel_iii"
+					expire = "1965.1.1"
+					ideology = monarchist_subtype
+					traits = {
+						
+					}
+				}
+			}
 			
 		}
 	}
 	focus = {
 		id = AUS_italy_war
-		icon = GFX_focus_rom_royal_dictatorship
+		icon = GFX_focus_attack_italy
 		x = 8
 		y = 1
 		relative_position_id = AUS_proclaim_empire
@@ -1155,6 +1297,8 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			remove_ideas = hungarian_resistance
+			remove_ideas = croatian_resistance
 			
 			
 		}
@@ -1186,8 +1330,9 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			remove_ideas = croatian_resistance
+			add_ideas = hungarian_loyalty
+			set_cosmetic_tag = AHUN_EMPIRE
 		}
 	}
 	focus = {
@@ -1219,8 +1364,15 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			set_cosmetic_tag = AHC
+			swap_ideas = {
+				add_idea = hungarian_loyalty
+				remove_idea = hungarian_resistance
+			}
+			swap_ideas = {
+				add_idea = croatian_loyalty
+				remove_idea = croatian_resistance
+			}
 		}
 	}
 	focus = {
@@ -1322,7 +1474,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = ff_strengthened
 		}
 	}
 	focus = {
@@ -1350,7 +1502,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = austrian_catholicism
 		}
 	}
 	focus = {
@@ -1407,7 +1559,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			custom_effect_tooltip = AUS_GER_no_cores_tt
 		}
 	}
 	focus = {
@@ -1660,7 +1812,7 @@
 		x = 20
 		y = 1
 		relative_position_id = AUS_pro-austrian_propaganda
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_pro-austrian_propaganda }
 		mutually_exclusive = { focus = AUS_strengthen_fatherland_front focus = AUS_regal_sentiment }
 		ai_will_do = {
@@ -1681,12 +1833,56 @@
 
 		completion_reward = {
 			
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
 		}
 	}
 	focus = {
 		id = AUS_allow_opposition_parties
 		icon = GFX_AUS_HUN_CRO
 		x = -1
+		y = 1
+		relative_position_id = AUS_deradicalise_regime
+		cost = 5
+		prerequisite = { focus = AUS_deradicalise_regime }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = monarchist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = AUS_hardline_against_extremists
+		icon = GFX_AUS_HUN_CRO
+		x = 1
 		y = 1
 		relative_position_id = AUS_deradicalise_regime
 		cost = 10
@@ -1708,10 +1904,9 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = hardline_against_extremists
 		}
 	}
-	
 	focus = {
 		id = AUS_hold_elections
 		icon = GFX_AUS_HUN_CRO
@@ -1720,6 +1915,7 @@
 		relative_position_id = AUS_deradicalise_regime
 		cost = 10
 		prerequisite = { focus = AUS_allow_opposition_parties }
+		prerequisite = { focus = AUS_hardline_against_extremists }
 		ai_will_do = {
 			factor = 1
 		}
@@ -1856,6 +2052,34 @@
 		}
 	}
 	focus = {
+		id = AUS_regulate_economy
+		icon = GFX_AUS_HUN_CRO
+		x = 1
+		y = 1
+		relative_position_id = AUS_sdapo_victory
+		cost = 10
+		prerequisite = { focus = AUS_sdapo_victory }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = regulate_economy
+		}
+	}
+	focus = {
 		id = AUS_request_british_protection
 		icon = GFX_focus_chi_british_cooperation
 		x = 0
@@ -1863,6 +2087,7 @@
 		relative_position_id = AUS_sdapo_victory
 		cost = 10
 		prerequisite = { focus = AUS_limit_corporate_power }
+		prerequisite = { focus = AUS_regulate_economy }
 		ai_will_do = {
 			factor = 1
 		}
