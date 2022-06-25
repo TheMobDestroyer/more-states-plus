@@ -1530,7 +1530,10 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			swap_ideas = {
+				add_idea = pan_germanism_2
+				remove_idea = pan_germanism
+			}
 		}
 	}
 	focus = {
@@ -1559,6 +1562,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			remove_ideas = pan_germanism_2
 			custom_effect_tooltip = AUS_GER_no_cores_tt
 		}
 	}
@@ -1940,6 +1944,35 @@
 		}
 	}
 	focus = {
+		id = AUS_kpo_victory
+		icon = GFX_AUS_HUN_CRO
+		x = 8
+		y = 1
+		relative_position_id = AUS_hold_elections
+		cost = 10
+		prerequisite = { focus = AUS_hold_elections }
+		mutually_exclusive = { focus = AUS_sdapo_victory }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
 		id = AUS_sdapo_victory
 		icon = GFX_AUS_HUN_CRO
 		x = 0
@@ -1947,6 +1980,7 @@
 		relative_position_id = AUS_hold_elections
 		cost = 10
 		prerequisite = { focus = AUS_hold_elections }
+		mutually_exclusive = { focus = AUS_kpo_victory }
 		ai_will_do = {
 			factor = 1
 		}
