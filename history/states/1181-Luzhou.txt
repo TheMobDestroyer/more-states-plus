@@ -1,0 +1,18 @@
+state={
+	id=1181
+	name="Luzhou"
+	provinces={
+		4141 4431 11972 
+	}
+	history = {
+		owner = SIC
+		add_core_of = SIC
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = { infrastructure = 1 }
+	}
+	state_category = rural
+	manpower=5684337
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

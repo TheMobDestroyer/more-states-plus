@@ -12,6 +12,13 @@
 				tag = GXC
 				tag = SHX
 				tag = XSM
+				tag = SIC
+				tag = HUA
+				tag = QIA
+				tag = XIK
+				tag = NIN
+				tag = DUN
+				tag = SHD
 			}
 			has_dlc = "Waking the Tiger"
 		}
@@ -435,10 +442,6 @@
 						ROOT = { has_country_flag = warlord_supports_@PREV }
 					}
 				}
-				OR = {
-					is_ai = no
-					is_historical_focus_on = no
-				}
 			}
 			is_subject = no
 			NOT = { has_war_with = CHI }
@@ -787,10 +790,6 @@
 			NOT = { has_war_with = SOV }
 			SOV = { has_government = communism }			
 			is_subject = no
-			OR = {
-					is_ai = no
-					is_historical_focus_on = no
-			}
 		}
 
 		bypass = {
@@ -1371,10 +1370,6 @@
 
 		available = {
 			is_subject = no
-			OR = {
-				is_ai = no
-				is_historical_focus_on = no
-			}
 		}
 
 		bypass = {
