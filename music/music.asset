@@ -2,8 +2,8 @@
 # MAIN THEME
 music = {
 	name = "maintheme"
-	file = "runthroughthejungle.ogg"
-	volume = 0.85
+	file = "thefreegermanyouth.ogg"
+	volume = 0.65
 }
 
 # General Peace:

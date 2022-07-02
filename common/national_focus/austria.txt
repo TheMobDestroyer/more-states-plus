@@ -531,6 +531,195 @@
 		}
 	}
 	focus = {
+		id = AUS_proclaim_new_republic
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 0
+		y = 1
+		relative_position_id = AUS_march_north
+		cost = 10
+		prerequisite = { focus = AUS_march_north}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_italy_alliance
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = -1
+		y = 3
+		relative_position_id = AUS_march_north
+		cost = 10
+		prerequisite = { focus = AUS_proclaim_new_republic }
+		mutually_exclusive = { focus = AUS_italy_warr }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			ITA = {
+				country_event = {
+					id = generic.5
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_alps_tech_sharing
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 1
+		y = 1
+		relative_position_id = AUS_formalise_alliance
+		cost = 10
+		prerequisite = { focus = AUS_formalise_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_to_tech_sharing_group = alps_research
+			SWI = { add_to_tech_sharing_group = alps_research }
+			LIE = { add_to_tech_sharing_group = alps_research }
+		}
+	}
+	focus = {
+		id = AUS_italy_warr
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = -4
+		y = 3
+		relative_position_id = AUS_march_north
+		cost = 10
+		prerequisite = { focus = AUS_proclaim_new_republic focus = AUS_proclaim_alpine_unification focus = AUS_formalise_alliance }
+		mutually_exclusive = { focus = AUS_italy_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ITA
+			}
+		}
+	}
+	focus = {
+		id = AUS_proclaim_alpine_unification
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 0
+		y = 1
+		relative_position_id = AUS_formalise_annexation
+		cost = 10
+		prerequisite = { focus = AUS_formalise_annexation }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			set_cosmetic_tag = ALP
+			
+		}
+	}
+	focus = {
+		id = AUS_integrate_italian_alps
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = -5
+		y = 4
+		relative_position_id = AUS_march_north
+		cost = 10
+		prerequisite = { focus = AUS_italy_warr }
+		prerequisite = { focus = AUS_proclaim_alpine_unification }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_state_core = 158
+			add_state_core = 936
+			add_state_core = 161
+			add_state_core = 159
+			add_state_core = 160
+			add_state_core = 937
+			add_state_core = 736
+			add_state_core = 938
+		}
+	}
+	focus = {
 		id = AUS_establish_autonomous_serbia
 		icon = GFX_focus_generic_treaty
 		x = 0
@@ -2444,10 +2633,10 @@
 		id = AUS_protect_german_catholics
 		icon = GFX_focus_ger_oppose_hitler
 		x = 0
-		y = 1
-		relative_position_id = AUS_topple_mussolini
+		y = 3
+		relative_position_id = AUS_proclaim_new_republic
 		cost = 10
-		prerequisite = { focus = AUS_topple_mussolini }
+		prerequisite = { focus = AUS_proclaim_new_republic }
 		ai_will_do = {
 			factor = 1
 		}

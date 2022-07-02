@@ -835,4 +835,8 @@ GUR = {
 	color = rgb { 87 146 247 }
 	color_ui = rgb { 74 147 255  }
 }
+GER_people = {
+	color = rgb { 227 4 4 }
+	color_ui = rgb { 193 81 81 }
+}
 
