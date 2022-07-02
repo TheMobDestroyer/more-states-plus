@@ -537,7 +537,7 @@
 		y = 1
 		relative_position_id = AUS_march_north
 		cost = 10
-		prerequisite = { focus = AUS_march_north}
+		prerequisite = { focus = AUS_march_north }
 		ai_will_do = {
 			factor = 1
 		}
@@ -559,13 +559,46 @@
 		}
 	}
 	focus = {
+		id = AUS_form_alliance
+		icon = GFX_goal_generic_alliance
+		x = -1
+		y = 2
+		relative_position_id = AUS_march_north
+		cost = 10
+		prerequisite = { focus = AUS_proclaim_new_republic }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			ITA = {
+				country_event = {
+					id = generic.5
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
 		id = AUS_italy_alliance
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_befriend_italy
 		x = -1
 		y = 3
 		relative_position_id = AUS_march_north
 		cost = 10
-		prerequisite = { focus = AUS_proclaim_new_republic }
+		prerequisite = { focus = AUS_form_alliance }
 		mutually_exclusive = { focus = AUS_italy_warr }
 		ai_will_do = {
 			factor = 1
@@ -595,7 +628,7 @@
 	focus = {
 		id = AUS_alps_tech_sharing
 		icon = GFX_goal_tfv_generic_tech_sharing
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = AUS_formalise_alliance
 		cost = 10
@@ -624,7 +657,7 @@
 	}
 	focus = {
 		id = AUS_italy_warr
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_attack_italy
 		x = -4
 		y = 3
 		relative_position_id = AUS_march_north
@@ -686,7 +719,7 @@
 	focus = {
 		id = AUS_integrate_italian_alps
 		icon = GFX_goal_generic_occupy_states_ongoing_war
-		x = -5
+		x = -6
 		y = 4
 		relative_position_id = AUS_march_north
 		cost = 10
@@ -1815,7 +1848,7 @@
 	focus = {
 		id = AUS_formalise_alliance
 		icon = GFX_AUS_HUN_CRO
-		x = 4
+		x = 3
 		y = 3
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
@@ -1844,7 +1877,7 @@
 	focus = {
 		id = AUS_demand_integration
 		icon = GFX_AUS_HUN_CRO
-		x = 2
+		x = 1
 		y = 3
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
@@ -1873,7 +1906,7 @@
 	focus = {
 		id = AUS_formalise_annexation
 		icon = GFX_AUS_HUN_CRO
-		x = 2
+		x = 1
 		y = 4
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
@@ -2074,7 +2107,7 @@
 	}
 	focus = {
 		id = AUS_hardline_against_extremists
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_focus_generic_anti_fascist_diplomacy
 		x = 1
 		y = 1
 		relative_position_id = AUS_deradicalise_regime
@@ -2102,7 +2135,7 @@
 	}
 	focus = {
 		id = AUS_hold_elections
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_AUS_ballot
 		x = 0
 		y = 2
 		relative_position_id = AUS_deradicalise_regime

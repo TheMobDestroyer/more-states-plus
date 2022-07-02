@@ -3104,4 +3104,12 @@ spriteTypes = {
 		name = "GFX_AUS_empire"
 		texturefile = "gfx/interface/goals/GFX_SIA_rattanakosin.png"
 	}
+	SpriteType = { 
+		name = "GFX_AUS_ballot"
+		texturefile = "gfx/interface/goals/GFX_AUS_ballot.png"
+	}
+	SpriteType = { 
+		name = "GFX_generic_ballot"
+		texturefile = "gfx/interface/goals/GFX_generic_ballot.png"
+	}
 }
