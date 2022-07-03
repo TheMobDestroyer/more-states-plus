@@ -2428,8 +2428,8 @@
 	}
 	focus = {
 		id = AUS_request_soviet_support
-		icon = GFX_focus_chi_mission_to_the_soviet_union
-		x = 2
+		icon = GFX_focus_SOV_socialism_in_one_country
+		x = 3
 		y = 1
 		relative_position_id = AUS_oppose_social_democracy
 		cost = 10
@@ -2481,9 +2481,7 @@
 		}
 		
 		bypass = {
-			NOT = { 
-				SOV = { has_government = communism } 
-			}
+			
 		}
 
 		cancel_if_invalid = yes
@@ -2511,9 +2509,7 @@
 		}
 		
 		bypass = {
-			NOT = { 
-				SOV = { has_government = communism } 
-			}
+			
 		}
 
 		cancel_if_invalid = yes
@@ -2526,13 +2522,14 @@
 		}
 	}
 	focus = {
-		id = AUS_abolish_the_corporate_state
+		id = AUS_expand_industrial_nationalisation
 		icon = GFX_AUS_fatherland_crushed
-		x = 2
-		y = 2
+		x = 3
+		y = 3
 		relative_position_id = AUS_oppose_social_democracy
 		cost = 10
-		prerequisite = { focus = AUS_request_soviet_support }
+		prerequisite = { focus = AUS_abolish_the_corporate_state }
+		prerequisite = { focus = AUS_return_communist_exiles }
 		ai_will_do = {
 			factor = 1
 		}
@@ -2541,9 +2538,374 @@
 		}
 		
 		bypass = {
-			NOT = { 
-				SOV = { has_government = communism } 
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_nothing_ventured
+		icon = GFX_goal_demand_sudetenland
+		x = -1
+		y = 4
+		relative_position_id = AUS_oppose_social_democracy
+		cost = 10
+		prerequisite = { focus = AUS_expand_industrial_nationalisation }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_nothing_gained
+		icon = GFX_AUS_kill_kurt
+		x = -1
+		y = 5
+		relative_position_id = AUS_oppose_social_democracy
+		cost = 10
+		prerequisite = { focus = AUS_nothing_ventured }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_cull_the_stragglers
+		icon = GFX_goal_generic_secret_weapon
+		x = -1
+		y = 6
+		relative_position_id = AUS_oppose_social_democracy
+		cost = 10
+		prerequisite = { focus = AUS_nothing_gained }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			retire_character = AUS_arthur_seyss-inquart
+		}
+	}
+	focus = {
+		id = AUS_sov_alliance
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 1
+		y = 7
+		relative_position_id = AUS_oppose_social_democracy
+		cost = 10
+		prerequisite = { focus = AUS_cull_the_stragglers }
+		mutually_exclusive = { focus = AUS_communist_alternative focus = AUS_join_allies }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = { 
+				has_government = communism 
+				is_faction_leader = yes
 			}
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SOV = {
+				country_event = {
+					id = generic.2
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_join_allies
+		icon = GFX_focus_chi_british_cooperation
+		x = -3
+		y = 7
+		relative_position_id = AUS_oppose_social_democracy
+		cost = 10
+		prerequisite = { focus = AUS_cull_the_stragglers }
+		mutually_exclusive = { focus = AUS_communist_alternative focus = AUS_sov_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ENG = { 
+				is_faction_leader = yes
+			}
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			ENG = {
+				country_event = {
+					id = generic.2
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_communist_alternative
+		icon = GFX_focus_generic_support_the_left_right
+		x = -1
+		y = 7
+		relative_position_id = AUS_oppose_social_democracy
+		cost = 10
+		prerequisite = { focus = AUS_cull_the_stragglers }
+		mutually_exclusive = { focus = AUS_sov_alliance focus = AUS_join_allies }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "Vienna Pact"
+			if = {
+				limit = {
+					has_idea = soviet_aid
+				}
+				country_event = {
+					id = austria.32
+					days = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_denounce_hitler
+		icon = GFX_focus_generic_support_the_left_right
+		x = 1
+		y = 1
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_communist_alternative focus = AUS_sov_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_german_communist_alternative
+		icon = GFX_focus_generic_support_the_left_right
+		x = 1
+		y = 2
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_denounce_hitler }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_return_kpd_exiles
+		icon = GFX_focus_generic_support_the_left_right
+		x = 3
+		y = 3
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_german_communist_alternative }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_western_aid
+		icon = GFX_focus_generic_support_the_left_right
+		x = -2
+		y = 1
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_join_allies }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = AUS_analyse_wermacht_strategies
+		icon = GFX_focus_generic_support_the_left_right
+		x = -1
+		y = 3
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_german_communist_alternative }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = german_strategy_analysis
+		}
+	}
+	focus = {
+		id = AUS_reverse_anschluss
+		icon = GFX_focus_generic_support_the_left_right
+		x = 1
+		y = 4
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_analyse_wermacht_strategies }
+		prerequisite = { focus = AUS_return_kpd_exiles }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction = no
+		}
+		
+		bypass = {
+			
 		}
 
 		cancel_if_invalid = yes
@@ -2567,62 +2929,6 @@
 		cost = 10
 		prerequisite = { focus = AUS_hold_elections }
 		mutually_exclusive = { focus = AUS_kpo_victory }
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = AUS_sdapo_victory
-		icon = GFX_AUS_HUN_CRO
-		x = 0
-		y = 1
-		relative_position_id = AUS_hold_elections
-		cost = 10
-		prerequisite = { focus = AUS_hold_elections }
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = AUS_sdapo_victory
-		icon = GFX_AUS_HUN_CRO
-		x = 0
-		y = 1
-		relative_position_id = AUS_hold_elections
-		cost = 10
-		prerequisite = { focus = AUS_hold_elections }
 		ai_will_do = {
 			factor = 1
 		}

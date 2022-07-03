@@ -3116,4 +3116,8 @@ spriteTypes = {
 		name = "GFX_AUS_fatherland_crushed"
 		texturefile = "gfx/interface/goals/GFX_AUS_fatherland_crushed.png"
 	}
+	SpriteType = { 
+		name = "GFX_AUS_kill_kurt"
+		texturefile = "gfx/interface/goals/GFX_AUS_kill_kurt.dds"
+	}
 }
