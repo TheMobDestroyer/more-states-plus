@@ -3112,4 +3112,8 @@ spriteTypes = {
 		name = "GFX_generic_ballot"
 		texturefile = "gfx/interface/goals/GFX_generic_ballot.png"
 	}
+	SpriteType = { 
+		name = "GFX_AUS_fatherland_crushed"
+		texturefile = "gfx/interface/goals/GFX_AUS_fatherland_crushed.png"
+	}
 }

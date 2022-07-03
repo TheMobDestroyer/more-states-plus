@@ -392,6 +392,53 @@ ideas = {
 		
 			
 		}
+		soviet_aid = {
+			picture = generic_monarchist_uprising
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				NOT = { has_government = monarchist }
+			}
+
+			allowed_civil_war = {
+				
+			}
+			removal_cost = -1
+			modifier = {
+				communism_drift = 0.05
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
+				political_power_gain = 0.1
+			}
+		
+			
+		}
+		rote_garde = {
+			picture = generic_monarchist_uprising
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				NOT = { has_government = monarchist }
+			}
+
+			allowed_civil_war = {
+				
+			}
+			removal_cost = -1
+			modifier = {
+				conscription = 0.015
+				army_attack_factor = 0.05
+				command_power_gain = 0.2
+			}
+		
+			
+		}
 	}
 	# TECHNOLOGY
 	tank_manufacturer = {

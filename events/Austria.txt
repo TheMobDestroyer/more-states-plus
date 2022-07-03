@@ -865,3 +865,72 @@ country_event = {
 		set_country_flag = KPO_VICTORY
 	}
 }
+#requesting soviet support
+country_event = {
+	id = austria.29
+	title = austria.29.t
+	desc = austria.29.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #no
+		name = austria.29.a
+		ai_chance = {
+			factor = 0
+		}
+		FROM = {
+			country_event = {
+				id = austria.31
+				days = 2
+			}
+		}
+	}
+	option = { #yes
+		name = austria.28.b
+		ai_chance = {
+			factor = 10
+		}
+		FROM = {
+			country_event = {
+				id = austria.30
+				days = 2
+			}
+			custom_effect_tooltip = "If We Accept:"
+			effect_tooltip = {
+				add_ideas = soviet_aid
+			}
+		}
+	}
+}
+#soviets say yes
+country_event = {
+	id = austria.30
+	title = austria.30.t
+	desc = austria.30.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #no
+		name = austria.30.a
+		ai_chance = {
+			factor = 1
+		}
+		add_ideas = soviet_aid
+	}
+}
+#soviets say no
+country_event = {
+	id = austria.31
+	title = austria.31.t
+	desc = austria.31.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #no
+		name = austria.31.a
+		ai_chance = {
+			factor = 1
+		}
+		
+	}
+}
