@@ -22,7 +22,7 @@ ideas = {
 		
 			
 		}
-		Frontmiliz = {
+		frontmiliz = {
 			picture = HUN_treaty_of_triannon
 			allowed = {
 				

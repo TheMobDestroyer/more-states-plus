@@ -18,3 +18,19 @@ AUS_puppet_decisions = {
 		
 	}
 }
+AUS_core_decisions = {
+
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		tag = AUS
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		
+	}
+}

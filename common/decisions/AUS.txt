@@ -35,4 +35,75 @@ AUS_puppet_decisions = {
 			}
 		}
 	}
+	AUS_core_germany = {
+
+		icon = GFX_decision_generic_nationalism
+
+		ai_will_do = {
+			base = 100
+		}
+
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				all_state = {
+					is_core_of = GER
+				}
+				is_fully_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		available = {
+			FROM = {
+				compliance > 30
+			}
+			has_equipment = {
+			    infantry_equipment > 499
+			}
+			has_manpower > 999
+			command_power > 14
+		}
+
+		visible = {
+		#	has_completed_focus = AUS_erase_prussian_hegemony
+			FROM = {
+				is_fully_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+		}
+  
+		cost = 35
+
+		days_remove = 70
+		
+		complete_effect = {
+			add_manpower = -1000
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = -500
+			}
+			add_command_power = -15
+		}
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+}
+AUS_core_decisions = {
+	
 }

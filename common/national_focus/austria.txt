@@ -583,12 +583,8 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			ITA = {
-				country_event = {
-					id = generic.5
-					days = 2
-				}
-			}
+			set_rule = { can_create_factions = yes }
+			create_faction = "Vienna Pact"
 		}
 	}
 	focus = {
@@ -658,7 +654,7 @@
 	focus = {
 		id = AUS_italy_warr
 		icon = GFX_focus_attack_italy
-		x = -4
+		x = -5
 		y = 3
 		relative_position_id = AUS_march_north
 		cost = 10
@@ -699,7 +695,21 @@
 			factor = 1
 		}
 		available = {
-			
+			3 = { is_owned_or_subject_trigger = yes }
+			OR = {
+				SWI = { 
+					exists = no 
+					is_puppet_of = AUS
+				}
+				
+			}
+			OR = {
+				LIE = { 
+					exists = no 
+					is_puppet_of = AUS
+				}
+				
+			}
 		}
 		
 		bypass = {
@@ -719,7 +729,7 @@
 	focus = {
 		id = AUS_integrate_italian_alps
 		icon = GFX_goal_generic_occupy_states_ongoing_war
-		x = -6
+		x = -7
 		y = 4
 		relative_position_id = AUS_march_north
 		cost = 10
@@ -1842,7 +1852,67 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			AUS = { give_guarantee = SWI }
+			SWI = { give_guarantee = AUS }
+		}
+	}
+	focus = {
+		id = AUS_form_the_frontmiliz
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 3
+		y = 1
+		relative_position_id = AUS_germans_against_germany
+		cost = 10
+		prerequisite = { focus = AUS_germans_against_germany focus = AUS_support_sudetens }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
 			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = frontmiliz
+		}
+	}
+	focus = {
+		id = AUS_connect_the_capitals
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 0
+		y = 2
+		relative_position_id = AUS_switzerland_friendship_treaty
+		cost = 10
+		prerequisite = { focus = AUS_demand_integration focus = AUS_formalise_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			build_railway = {
+				level = 2
+				path = { 11666 6690 9679 9650 3684 688 3675 11634 673 11618 9633 6678 6680 13246 11623 663 9638 9620 }
+			}
 		}
 	}
 	focus = {
@@ -1871,7 +1941,10 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			set_rule = { can_create_factions = yes }
+			create_faction = "Confederation of Alpine States"
+			add_to_faction = SWI
+			add_to_faction = LIE
 		}
 	}
 	focus = {
@@ -1900,22 +1973,47 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			SWI = { 
+				country_event = {
+					id = austria.22
+					days = 2
+				}
+			}
+			LIE = { 
+				country_event = {
+					id = austria.22
+					days = 2
+				}
+			}
 		}
 	}
 	focus = {
 		id = AUS_formalise_annexation
 		icon = GFX_AUS_HUN_CRO
-		x = 1
+		x = 0
 		y = 4
 		relative_position_id = AUS_distinguish_austria
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_demand_integration }
 		ai_will_do = {
 			factor = 1
 		}
 		available = {
-			
+			3 = { is_owned_or_subject_trigger = yes }
+			OR = {
+				SWI = { 
+					exists = no 
+					is_puppet_of = AUS
+				}
+				
+			}
+			OR = {
+				LIE = { 
+					exists = no 
+					is_puppet_of = AUS
+				}
+				
+			}
 		}
 		
 		bypass = {
@@ -1928,7 +2026,12 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_state_core = 151
+			add_state_core = 849
+			add_state_core = 3
+			add_state_core = 850
+			add_state_core = 851
+			add_state_core = 982
 		}
 	}
 	focus = {
@@ -2551,6 +2654,34 @@
 		}
 	}
 	focus = {
+		id = AUS_allow_private_sector
+		icon = GFX_AUS_fatherland_crushed
+		x = -3
+		y = 1
+		relative_position_id = AUS_alliance_with_sdapo
+		cost = 10
+		prerequisite = { focus = AUS_alliance_with_sdapo }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
 		id = AUS_nothing_ventured
 		icon = GFX_goal_demand_sudetenland
 		x = -1
@@ -2760,7 +2891,7 @@
 			factor = 1
 		}
 		available = {
-			is_in_faction = no
+			NOT = { is_in_faction_with = GER } 
 		}
 		
 		bypass = {
@@ -2788,7 +2919,7 @@
 			factor = 1
 		}
 		available = {
-			is_in_faction = no
+			NOT = { is_in_faction_with = GER } 
 		}
 		
 		bypass = {
@@ -2816,7 +2947,7 @@
 			factor = 1
 		}
 		available = {
-			is_in_faction = no
+			NOT = { is_in_faction_with = GER } 
 		}
 		
 		bypass = {
@@ -2844,7 +2975,7 @@
 			factor = 1
 		}
 		available = {
-			is_in_faction = no
+			
 		}
 		
 		bypass = {
@@ -2872,7 +3003,7 @@
 			factor = 1
 		}
 		available = {
-			is_in_faction = no
+			NOT = { is_in_faction_with = GER } 
 		}
 		
 		bypass = {
@@ -2889,8 +3020,8 @@
 		}
 	}
 	focus = {
-		id = AUS_reverse_anschluss
-		icon = GFX_focus_generic_support_the_left_right
+		id = AUS_flip_the_memo
+		icon = GFX_focus_attack_germany
 		x = 1
 		y = 4
 		relative_position_id = AUS_communist_alternative
@@ -2901,7 +3032,7 @@
 			factor = 1
 		}
 		available = {
-			is_in_faction = no
+			NOT = { is_in_faction_with = GER } 
 		}
 		
 		bypass = {
@@ -2914,7 +3045,41 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
+		}
+	}
+	focus = {
+		id = AUS_erase_prussian_hegemony
+		icon = GFX_focus_attack_germany
+		x = 1
+		y = 5
+		relative_position_id = AUS_communist_alternative
+		cost = 10
+		prerequisite = { focus = AUS_flip_the_memo }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { is_in_faction_with = GER } 
+		}
+		
+		bypass = {
 			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
 		}
 	}
 	#####################
