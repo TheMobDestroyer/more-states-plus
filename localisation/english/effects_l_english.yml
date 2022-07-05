@@ -358,3 +358,6 @@
  AUS_HUN_cores_tt:0 "§CCores Hungarian territories"
  AUS_CZE_coup_tt:0 "If: \n Neutrality §Gbelow 40% §Wwill lead to a Czech civil war. \n Neutrality §Gbelow 50% §Wwill puppet Czechoslovakia \n Neutrality §Gabove 50% §W will annex Czechoslovakia"
  AUS_GER_no_cores_tt:0 "§CGermany will be unable to core our territory!"
+ aus_core_decisions_tt:0 "§CUnlock Decisions to Core Germany§W"
+ AUS_2_extra_units_tt:0 "§CGain 2 extra decisions at the start of the civil war§W"
+ AUS_3_extra_units_tt:0 "§CGain 3 extra decisions at the start of the civil war§W"

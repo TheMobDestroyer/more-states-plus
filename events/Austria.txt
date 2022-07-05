@@ -950,3 +950,80 @@ country_event = {
 		remove_ideas = soviet_aid
 	}
 }
+#Civil War!
+country_event = {
+	id = austria.33
+	title = austria.33.t
+	desc = austria.33.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #no
+		name = austria.33.a
+		ai_chance = {
+			factor = 1
+		}
+		start_civil_war = {
+			ruling_party = communism
+			ideology = fascism
+			size = 0.5
+			capital = 153
+			states = { 152 153 }
+		}
+		load_oob = "AUS_Austrian_Civil_War_communism"
+		random_other_country = {
+				limit = {
+					original_tag = AUS
+					has_government = fascism
+				}
+				set_stability = 0.9
+				set_war_support = 0.8
+			load_oob = "AUS_Austrian_Civil_War_fascism"
+			#set_capital = {state = 153}
+		}
+		if = {
+			limit = {
+				has_completed_focus = AUS_encourage_bundesheer_desertion
+			}
+			load_oob = "AUS_Austrian_Civil_War_2_extra"
+		}
+		if = {
+			limit = {
+				has_completed_focus = AUS_nothing_ventured
+			}
+			load_oob = "AUS_Austrian_Civil_War_3_extra"
+		}
+	}
+}
+#removes militia units
+country_event = {
+	id = austria.34
+	title = austria.34.t
+	desc = austria.34.desc
+	picture = GFX_report_event_election_vote
+	trigger = {
+		tag = AUS
+		has_completed_focus = AUS_nothing_gained
+		has_template = "Militia Unit"
+		has_civil_war = no
+	}
+	fire_only_once = yes
+	option = { #victory!
+	 	name = austria.34.a
+		ai_chance = {
+			factor = 10
+		}
+		delete_unit_template_and_units = {
+			division_template = "Militia Unit"
+			disband = no
+		}
+		delete_unit_template_and_units = {
+			division_template = "Extra Unit"
+			disband = no
+		}
+		delete_unit_template_and_units = {
+			division_template = "Extra Unit 2"
+			disband = no
+		}
+	}
+}

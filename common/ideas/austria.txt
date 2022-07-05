@@ -439,6 +439,28 @@ ideas = {
 		
 			
 		}
+		western_economic_support = {
+			picture = generic_economic_increase
+			allowed = {
+				 
+
+			}
+		
+			available = {
+				NOT = { has_government = monarchist }
+			}
+
+			allowed_civil_war = {
+				
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.025
+				production_speed_buildings_factor = 0.05
+			}
+		
+			
+		}
 	}
 	# TECHNOLOGY
 	tank_manufacturer = {

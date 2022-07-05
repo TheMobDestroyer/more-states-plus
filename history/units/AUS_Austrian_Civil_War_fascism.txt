@@ -1,0 +1,65 @@
+﻿
+division_template = {
+		name = "Militia Unit"
+		is_locked = yes
+		division_names_group = AUS_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+		}
+}
+units = {
+	division = {
+		name = "1. Militia Unit"
+		location = 732
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "2. Militia Unit"
+		location = 9665
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "3. Militia Unit"
+		location = 3684
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "4. Militia Unit"
+		location = 9650
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "5. Militia Unit"
+		location = 6691
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "6. Militia Unit"
+		location = 3674
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "7. Militia Unit"
+		location = 6673
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "8. Militia Unit"
+		location = 6691
+		division_template = "Militia Unit"
+	}
+	division = {
+		name = "9. Militia Unit"
+		location = 3684
+		division_template = "Militia Unit"
+	}
+}
