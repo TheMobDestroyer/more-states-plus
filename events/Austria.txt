@@ -1027,3 +1027,26 @@ country_event = {
 		}
 	}
 }
+#ausgleich mission expires
+country_event = {
+	id = austria.35
+	title = austria.35.t
+	desc = austria.35.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	option = { #maybe something can be worked out
+		name = austria.35.a
+		ai_chance = {
+			factor = 1
+		}
+		set_cosmetic_tag = DANUBE
+	}
+	option = { #nothing we can do
+		name = austria.35.b
+		ai_chance = {
+			factor = 1
+		}
+		
+	}
+}

@@ -34,3 +34,19 @@ AUS_core_decisions = {
 		
 	}
 }
+AUS_ausgleich_mission = {
+
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	
+	allowed = {
+		tag = AUS
+	}
+
+	priority = {
+		base = 10
+	}
+
+	visible = {
+		
+	}
+}

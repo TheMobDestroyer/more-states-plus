@@ -273,7 +273,7 @@
 	focus = {
 		id = AUS_old_empire
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = AUS_reinstate_habsburg_lorraine
 		cost = 10
@@ -376,7 +376,6 @@
 		relative_position_id = AUS_old_empire
 		cost = 10
 		prerequisite = { focus = AUS_demand_referendum focus = AUS_reclaim_hungary }
-		mutually_exclusive = { focus = AUS_demand_referendum }
 		ai_will_do = {
 			factor = 1
 		}
@@ -1446,12 +1445,554 @@
 		}
 	}
 	focus = {
+		id = AUS_trans-danubian_railway
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 12
+		y = 1
+		relative_position_id = AUS_proclaim_empire
+		cost = 5
+		prerequisite = { focus = AUS_proclaim_empire }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 4
+			owns_state = 886
+			owns_state = 155
+			owns_state = 43
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			build_railway = {
+				level = 2
+				path = { 11666 3700 6720 9676 11663 13259 9660 }
+			}
+			
+		}
+	}
+	focus = {
+		id = AUS_transylvanian_highway_construction
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -3
+		y = 1
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 10
+		prerequisite = { focus = AUS_trans-danubian_railway }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			76 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			933 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			84 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			83 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			82 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				path = { 9660 716 6716 699 11644 3696 713 746 11676 9672 9670 9668 690 84 11639 6679 3665 9619 662 11608 9606}
+			}
+		}
+	}
+	focus = {
+		id = AUS_exploit_cacova_ierii_mine
+		icon = GFX_focus_generic_steel
+		x = -4
+		y = 2
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_transylvanian_highway_construction }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 76
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 16
+				state = 76
+			}
+		}
+	}
+	focus = {
+		id = AUS_extract_mutenian_oil
+		icon = GFX_goal_generic_oil_refinery
+		x = -2
+		y = 2
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_transylvanian_highway_construction }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 46
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 12
+				state = 46
+			}
+		}
+	}
+	focus = {
+		id = AUS_balkan_highway
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 0
+		y = 2
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_trans-danubian_railway }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 4
+			owns_state = 102
+			owns_state = 109
+			owns_state = 992
+			owns_state = 103
+			owns_state = 931
+			owns_state = 804
+			owns_state = 990
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			build_railway = {
+				level = 2
+				path = { 11666 6690 9648 9646 596 11581 3592 3601 6611 984 3974 3924 11816 9894 3868 6889 }
+			}
+		}
+	}
+	focus = {
+		id = AUS_wall_up_the_adriatic
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 0
+		y = 4
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_balkan_highway }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 931
+			owns_state = 990
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			103 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3924
+					level = 3
+				}
+			}
+			990 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 6889
+					level = 3
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 163
+				}
+				163 = {
+					add_building_construction = {
+						type = coastal_bunker
+						province = 6889
+						level = 3
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 938
+				}
+				938 = {
+					add_building_construction = {
+						type = coastal_bunker
+						province = 6889
+						level = 3
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_slovene_development
+		icon = GFX_focus_SOV_the_road_of_life
+		x = -2
+		y = 1
+		relative_position_id = AUS_balkan_highway
+		cost = 5
+		prerequisite = { focus = AUS_balkan_highway }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 838
+			owns_state = 102
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			838 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			102 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_croatian_development
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 2
+		y = 1
+		relative_position_id = AUS_balkan_highway
+		cost = 10
+		prerequisite = { focus = AUS_balkan_highway }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			owns_state = 109
+			owns_state = 930
+			owns_state = 103
+			owns_state = 931
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			109 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			930 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			103 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			931 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_czech_highway_construction
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 3
+		y = 1
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_trans-danubian_railway }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			CZE = {
+				exists = no
+			}
+			any_owned_state = {
+				is_core_of = CZE
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = CZE
+					is_owned_by = AUS
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_integrate_skoda_works
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 2
+		y = 2
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_czech_highway_construction }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			CZE = {
+				exists = no
+			}
+			owns_state = 9
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = CZE_skoda_works
+		}
+	}
+	focus = {
+		id = AUS_sudeten_fortifications
+		icon = GFX_goal_fortify_the_westwall
+		x = 4
+		y = 2
+		relative_position_id = AUS_trans-danubian_railway
+		cost = 5
+		prerequisite = { focus = AUS_czech_highway_construction }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			CZE = {
+				exists = no
+			}
+			owns_state = 9
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			845 = {
+				add_building_construction = {
+					type = bunker
+					level = 4
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			69 = {
+				add_building_construction = {
+					type = bunker
+					level = 4
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			74 = {
+				add_building_construction = {
+					type = bunker
+					level = 4
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
 		id = AUS_fate_of_monarchy
 		icon = GFX_focus_rom_royal_dictatorship
 		x = 0
 		y = 3
 		relative_position_id = AUS_proclaim_empire
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_proclaim_empire }
 		ai_will_do = {
 			factor = 1
@@ -1470,8 +2011,8 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			
+			add_political_power = 50
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -1480,7 +2021,7 @@
 		x = 0
 		y = 4
 		relative_position_id = AUS_proclaim_empire
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_fate_of_monarchy }
 		ai_will_do = {
 			factor = 1
@@ -1683,7 +2224,7 @@
 	focus = {
 		id = AUS_strengthen_fatherland_front
 		icon = GFX_AUS_HUN_CRO
-		x = 6
+		x = 12
 		y = 1
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
@@ -1712,7 +2253,7 @@
 	focus = {
 		id = AUS_promote_catholicism
 		icon = GFX_AUS_HUN_CRO
-		x = 5
+		x = 11
 		y = 2
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
@@ -1740,7 +2281,7 @@
 	focus = {
 		id = AUS_austro-fascism
 		icon = GFX_AUS_HUN_CRO
-		x = 7
+		x = 13
 		y = 2
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
@@ -1771,7 +2312,7 @@
 	focus = {
 		id = AUS_distinguish_austria
 		icon = GFX_AUS_HUN_CRO
-		x = 6
+		x = 12
 		y = 3
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 10
@@ -1801,7 +2342,7 @@
 	focus = {
 		id = AUS_germans_against_germany
 		icon = GFX_AUS_HUN_CRO
-		x = 2
+		x = 5
 		y = 1
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
@@ -1811,7 +2352,7 @@
 			factor = 1
 		}
 		available = {
-			
+			NOT = { is_in_faction_with = GER }
 		}
 		
 		bypass = {
@@ -1824,7 +2365,12 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			GER = {
+				add_opinion_modifier = {
+					target = AUS
+					modifier = large_decrease
+				}
+			}
 		}
 	}
 	focus = {
@@ -1896,7 +2442,12 @@
 			factor = 1
 		}
 		available = {
-			
+			owns_state = 4
+			owns_state = 152
+			owns_state = 153
+			owns_state = 982
+			owns_state = 151
+			owns_state = 3
 		}
 		
 		bypass = {
@@ -1999,21 +2550,19 @@
 			factor = 1
 		}
 		available = {
-			3 = { is_owned_or_subject_trigger = yes }
-			OR = {
+			owns_state = 3
+			owns_state = 982
 				SWI = { 
 					exists = no 
-					is_puppet_of = AUS
 				}
 				
-			}
-			OR = {
+			
 				LIE = { 
 					exists = no 
-					is_puppet_of = AUS
+					
 				}
 				
-			}
+			
 		}
 		
 		bypass = {
@@ -2138,7 +2687,7 @@
 	focus = {
 		id = AUS_deradicalise_regime
 		icon = GFX_AUS_HUN_CRO
-		x = 20
+		x = 24
 		y = 1
 		relative_position_id = AUS_pro-austrian_propaganda
 		cost = 5
@@ -3733,8 +4282,8 @@
 		}
 	}
 	focus = {
-		id = AUS_anti-german_propaganda
-		icon = GFX_goal_generic_propaganda
+		id = AUS_reverse_the_anschluss
+		icon = GFX_focus_attack_germany
 		x = 0
 		y = 2
 		relative_position_id = AUS_protect_german_catholics
@@ -3758,7 +4307,305 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-		
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
 		}
 	}
-}		
+	focus = {
+		id = AUS_relegate_prussia_north
+		icon = GFX_focus_attack_germany
+		x = -1
+		y =	3
+		relative_position_id = AUS_protect_german_catholics
+		cost = 10
+		prerequisite = { focus = AUS_reverse_the_anschluss }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER = {
+				OR = {
+					exists = no
+					is_puppet_of = AUS
+				}
+			}
+			1165 = { is_owned_or_subject_trigger = yes }
+			64 = { is_owned_or_subject_trigger = yes }
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = {
+				limit = {
+					997 = { is_owned_or_subject_trigger = yes }
+				}
+				997 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					64 = { is_owned_or_subject_trigger = yes }
+				}
+				64 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					1165 = { is_owned_or_subject_trigger = yes }
+				}
+				1165 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+				PRE = {
+					set_capital = {
+						state = 1165
+						remember_old_capital = no
+					}
+				}
+				puppet = PRE
+			}
+			if = {
+				limit = {
+					59 = { is_owned_or_subject_trigger = yes }
+				}
+				59 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					1162 = { is_owned_or_subject_trigger = yes }
+				}
+				1162 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					58 = { is_owned_or_subject_trigger = yes }
+				}
+				58 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					858 = { is_owned_or_subject_trigger = yes }
+				}
+				858 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					60 = { is_owned_or_subject_trigger = yes }
+				}
+				60 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					996 = { is_owned_or_subject_trigger = yes }
+				}
+				996 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					65 = { is_owned_or_subject_trigger = yes }
+				}
+				65 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					68 = { is_owned_or_subject_trigger = yes }
+				}
+				68 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					66 = { is_owned_or_subject_trigger = yes }
+				}
+				66 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					67 = { is_owned_or_subject_trigger = yes }
+				}
+				67 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					762 = { is_owned_or_subject_trigger = yes }
+				}
+				762 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					86 = { is_owned_or_subject_trigger = yes }
+				}
+				86 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					807 = { is_owned_or_subject_trigger = yes }
+				}
+				807 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					85 = { is_owned_or_subject_trigger = yes }
+				}
+				85 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					5 = { is_owned_or_subject_trigger = yes }
+				}
+				5 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					763 = { is_owned_or_subject_trigger = yes }
+				}
+				763 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					188 = { is_owned_or_subject_trigger = yes }
+				}
+				188 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					61 = { is_owned_or_subject_trigger = yes }
+				}
+				61 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					62 = { is_owned_or_subject_trigger = yes }
+				}
+				62 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					63 = { is_owned_or_subject_trigger = yes }
+				}
+				63 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					955 = { is_owned_or_subject_trigger = yes }
+				}
+				955 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+			if = {
+				limit = {
+					956 = { is_owned_or_subject_trigger = yes }
+				}
+				956 = {
+					transfer_state_to = PRE
+					add_core_of = PRE
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_integrate_catholics
+		icon = GFX_focus_attack_germany
+		x = 1
+		y = 3
+		relative_position_id = AUS_protect_german_catholics
+		cost = 10
+		prerequisite = { focus = AUS_reverse_the_anschluss }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			custom_effect_tooltip = "Unlocks Decisions to Core Southern Germany"
+			set_cosmetic_tag = GERCAT
+		}
+	}
+}	

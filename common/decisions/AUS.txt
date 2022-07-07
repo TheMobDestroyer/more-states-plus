@@ -104,4 +104,123 @@ AUS_core_decisions = {
 			}
 		}
 	}
+	AUS_core_christian_germany = {
+
+		icon = GFX_decision_generic_nationalism
+
+		ai_will_do = {
+			base = 100
+		}
+		
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+
+		target_array = controlled_states
+
+		target_trigger = { 
+			FROM = {
+				is_fully_controlled_by = ROOT
+				NOT = { 
+					is_core_of = ROOT
+					
+				}
+				is_core_of = GER
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		available = {
+			FROM = {
+				compliance > 25
+			}
+			has_equipment = {
+			    infantry_equipment > 249
+			}
+			has_manpower > 1249
+			command_power > 9
+		}
+
+		visible = {
+			has_completed_focus = AUS_integrate_catholics
+			FROM = {
+				is_fully_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					state = 997
+					state = 64
+					state = 1165
+					state = 61
+					state = 59
+					state = 1162
+					state = 58
+					state = 858
+					state = 60
+					state = 996
+					state = 65
+					state = 66
+					state = 67
+					state = 762
+					state = 68
+					state = 63
+					state = 62
+					state = 5
+					state = 763
+					state = 188
+					state = 85
+					state = 807
+					state = 86
+				}
+				any_neighbor_state = {
+					is_core_of = ROOT
+				}
+			}
+			tag = AUS
+		}
+  
+		cost = 35
+
+		days_remove = 70
+		
+		complete_effect = {
+			add_manpower = -1250
+			add_equipment_to_stockpile = {
+			    type = infantry_equipment
+			    amount = -250
+			}
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+}
+AUS_ausgleich_mission = {
+	AUS_ausgleich_timeout = {
+		activation = {
+			has_completed_focus = AUS_proclaim_empire
+		} 
+		available = {
+			has_completed_focus = AUS_proclaim_empire
+		}
+		days_mission_timeout = 460
+		timeout_effect = {
+			add_stability = -0.1
+			add_war_support = -0.1
+			country_event = {
+				id = austria.35
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_completed_focus = AUS_maintain_austrian_superiority
+				has_completed_focus = AUS_dual_monarchy
+				has_completed_focus = AUS_tri_monarchy
+			}
+		}
+	}
 }
