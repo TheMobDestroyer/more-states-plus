@@ -549,11 +549,43 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		AUS = {
-			transfer_state = 88
-			transfer_state = 91
-			transfer_state = 89
-			transfer_state = 885
+		if = {
+			limit = {
+				AUS = { 
+					owns_state = 9
+					owns_state = 75
+					owns_state = 70
+					owns_state = 72
+					owns_state = 71
+				}
+				
+			}
+			AUS = {
+				transfer_state = 88
+				transfer_state = 91
+				transfer_state = 89
+				transfer_state = 885
+				transfer_state = 1110
+				transfer_state = 1109
+				}
+			else = {
+				GAL = {
+					transfer_state = 88
+					transfer_state = 91
+					transfer_state = 89
+					transfer_state = 885
+					transfer_state = 1110
+					transfer_state = 1109
+					add_state_core = 885
+					add_state_core = 88
+					add_state_core = 1110
+					add_state_core = 1109
+					add_state_core = 91
+					add_state_core = 89
+					set_cosmetic_tag = GAL_monarchist
+				}
+				AUS = { puppet = GAL }
+			}
 		}
 	}
 }

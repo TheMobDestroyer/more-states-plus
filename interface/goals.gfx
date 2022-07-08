@@ -3120,4 +3120,36 @@ spriteTypes = {
 		name = "GFX_AUS_kill_kurt"
 		texturefile = "gfx/interface/goals/GFX_AUS_kill_kurt.dds"
 	}
+	SpriteType = { 
+		name = "GFX_AUS_flag"
+		texturefile = "gfx/interface/goals/GFX_AUS_flag.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_fatherland"
+		texturefile = "gfx/interface/goals/GFX_AUS_fatherland.png"
+	}
+	SpriteType = { 
+		name = "GFX_SWI_deal"
+		texturefile = "gfx/interface/goals/GFX_SWI_deal.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_soviets"
+		texturefile = "gfx/interface/goals/GFX_AUS_soviets.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_GER_break_treaty"
+		texturefile = "gfx/interface/goals/GFX_AUS_GER_break_treaty.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ENG_handshake"
+		texturefile = "gfx/interface/goals/GFX_AUS_ENG_handshake.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ENG_FRA_flags"
+		texturefile = "gfx/interface/goals/GFX_AUS_ENG_FRA_flags.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_alpine"
+		texturefile = "gfx/interface/goals/GFX_AUS_alpine.png"
+	}
 }

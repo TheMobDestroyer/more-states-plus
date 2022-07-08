@@ -215,7 +215,10 @@
 		}
 
 		available = {
-
+			GER = { 
+				has_government = fascism
+				NOT = { has_completed_focus = GER_anschluss }
+			}
 		}
 		
 		bypass = {
@@ -247,7 +250,12 @@
 		}
 
 		available = {
-
+			GER = { 
+				has_government = fascism
+				NOT = { has_completed_focus = GER_anschluss }
+			}
+			is_puppet = no
+			
 		}
 		
 		bypass = {
@@ -535,7 +543,7 @@
 		x = 0
 		y = 1
 		relative_position_id = AUS_march_north
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_march_north }
 		ai_will_do = {
 			factor = 1
@@ -555,6 +563,38 @@
 
 		completion_reward = {
 			set_cosmetic_tag = DEAU
+		}
+	}
+	focus = {
+		id = AUS_demand_slovenia_2
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 1
+		y = 2
+		relative_position_id = AUS_march_north
+		cost = 10
+		prerequisite = { focus = AUS_proclaim_new_republic }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			YUG = {
+				country_event = {
+					id = austria.11
+				}
+			}
 		}
 	}
 	focus = {
@@ -684,7 +724,7 @@
 	}
 	focus = {
 		id = AUS_proclaim_alpine_unification
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_AUS_alpine
 		x = 0
 		y = 1
 		relative_position_id = AUS_formalise_annexation
@@ -990,10 +1030,12 @@
 						monarchist < 30
 					}
 				}
-				start_civil_war = {
-					ideology = monarchist
-					size = 0.6
-					states = { 70 664 71 73 72 845 }
+				CZE = {
+					start_civil_war = {
+						ideology = monarchist
+						size = 0.6
+						states = { 70 664 71 73 72 845 }
+					}
 				}
 				
 			}
@@ -1264,7 +1306,7 @@
 	}
 	focus = {
 		id = AUS_invite_switzerland
-		icon = GFX_focus_attack_switzerland
+		icon = GFX_SWI_deal
 		x = 1
 		y = 1
 		relative_position_id = AUS_form_pact
@@ -2150,7 +2192,7 @@
 	}
 	focus = {
 		id = AUS_claim_colonies
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_generic_more_territorial_claims
 		x = -1
 		y = 2
 		relative_position_id = AUS_second_ausgleich
@@ -2184,7 +2226,7 @@
 	}
 	focus = {
 		id = AUS_belgian_overlordship
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_generic_forceful_treaty
 		x = 1
 		y = 2
 		relative_position_id = AUS_second_ausgleich
@@ -2223,7 +2265,7 @@
 	}
 	focus = {
 		id = AUS_strengthen_fatherland_front
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_AUS_fatherland
 		x = 12
 		y = 1
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -2252,7 +2294,7 @@
 	}
 	focus = {
 		id = AUS_promote_catholicism
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_focus_mex_restore_the_army_of_christ
 		x = 11
 		y = 2
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -2280,7 +2322,7 @@
 	}
 	focus = {
 		id = AUS_austro-fascism
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_AUS_fatherland
 		x = 13
 		y = 2
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -2311,7 +2353,7 @@
 	}
 	focus = {
 		id = AUS_distinguish_austria
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_AUS_flag
 		x = 12
 		y = 3
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -2341,8 +2383,8 @@
 	}
 	focus = {
 		id = AUS_germans_against_germany
-		icon = GFX_AUS_HUN_CRO
-		x = 5
+		icon = GFX_goal_generic_demand_territory
+		x = 2
 		y = 1
 		relative_position_id = AUS_distinguish_austria
 		cost = 10
@@ -2375,7 +2417,7 @@
 	}
 	focus = {
 		id = AUS_switzerland_friendship_treaty
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_SWI_deal
 		x = 2
 		y = 2
 		relative_position_id = AUS_distinguish_austria
@@ -2468,7 +2510,7 @@
 	}
 	focus = {
 		id = AUS_formalise_alliance
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_generic_occupy_states_ongoing_war
 		x = 3
 		y = 3
 		relative_position_id = AUS_distinguish_austria
@@ -2500,7 +2542,7 @@
 	}
 	focus = {
 		id = AUS_demand_integration
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_demand_sudetenland
 		x = 1
 		y = 3
 		relative_position_id = AUS_distinguish_austria
@@ -2540,7 +2582,7 @@
 	}
 	focus = {
 		id = AUS_formalise_annexation
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_anti_comintern_pact
 		x = 0
 		y = 4
 		relative_position_id = AUS_distinguish_austria
@@ -2585,7 +2627,7 @@
 	}
 	focus = {
 		id = AUS_support_sudetens
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_generic_dangerous_deal
 		x = 8
 		y = 1
 		relative_position_id = AUS_distinguish_austria
@@ -2612,12 +2654,18 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_political_power = 50
+			CZE = {
+				add_opinion_modifier = {
+					target = AUS
+					modifier = large_decrease
+				}
+			}
 		}
 	}
 	focus = {
 		id = AUS_arm_resistance
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_focus_secret_rearmament
 		x = 8
 		y = 2
 		relative_position_id = AUS_distinguish_austria
@@ -2640,9 +2688,18 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_state_core = 845
-			add_state_core = 69
-			add_state_core = 74
+			845 = {
+				add_core_of = AUS
+				start_resistance = AUS
+			}
+			69 = {
+				add_core_of = AUS
+				start_resistance = AUS
+			}
+			74 = {
+				add_core_of = AUS
+				start_resistance = AUS
+			}
 			CZE = {
 				remove_state_core = 845
 				remove_state_core = 69
@@ -2652,7 +2709,7 @@
 	}
 	focus = {
 		id = AUS_march_north
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_generic_territory_or_war
 		x = 8
 		y = 3
 		relative_position_id = AUS_distinguish_austria
@@ -2686,7 +2743,7 @@
 	}
 	focus = {
 		id = AUS_deradicalise_regime
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_support_democracy
 		x = 24
 		y = 1
 		relative_position_id = AUS_pro-austrian_propaganda
@@ -2719,7 +2776,7 @@
 	}
 	focus = {
 		id = AUS_allow_opposition_parties
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_support_democracy
 		x = -1
 		y = 1
 		relative_position_id = AUS_deradicalise_regime
@@ -2822,7 +2879,7 @@
 	####################
 	focus = {
 		id = AUS_kpo_victory
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_focus_generic_join_comintern
 		x = 10
 		y = 1
 		relative_position_id = AUS_hold_elections
@@ -2851,7 +2908,7 @@
 	}
 	focus = {
 		id = AUS_establish_soviets
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_AUS_soviets
 		x = 0
 		y = 1
 		relative_position_id = AUS_kpo_victory
@@ -2908,7 +2965,7 @@
 	}
 	focus = {
 		id = AUS_oppose_social_democracy
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_generic_war_with_comintern
 		x = 1
 		y = 2
 		relative_position_id = AUS_kpo_victory
@@ -3486,7 +3543,7 @@
 	}
 	focus = {
 		id = AUS_join_allies
-		icon = GFX_focus_chi_british_cooperation
+		icon = GFX_AUS_ENG_FRA_flags
 		x = -3
 		y = 7
 		relative_position_id = AUS_oppose_social_democracy
@@ -3710,7 +3767,7 @@
 	}
 	focus = {
 		id = AUS_flip_the_memo
-		icon = GFX_focus_attack_germany
+		icon = GFX_AUS_GER_break_treaty
 		x = -1
 		y = 4
 		relative_position_id = AUS_oppose_stalin
@@ -3773,7 +3830,7 @@
 	#####################
 	focus = {
 		id = AUS_sdapo_victory
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_goal_support_democracy
 		x = 0
 		y = 1
 		relative_position_id = AUS_hold_elections
@@ -3802,7 +3859,7 @@
 	}
 	focus = {
 		id = AUS_limit_corporate_power
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_focus_generic_self_management
 		x = -1
 		y = 1
 		relative_position_id = AUS_sdapo_victory
@@ -3830,7 +3887,7 @@
 	}
 	focus = {
 		id = AUS_regulate_economy
-		icon = GFX_AUS_HUN_CRO
+		icon = GFX_focus_hol_abandon_the_gold_standard
 		x = 1
 		y = 1
 		relative_position_id = AUS_sdapo_victory
@@ -3945,7 +4002,7 @@
 	}
 	focus = {
 		id = AUS_join_uk
-		icon = GFX_focus_chi_british_cooperation
+		icon = GFX_AUS_ENG_handshake
 		x = -1
 		y = 2
 		relative_position_id = AUS_request_british_protection
@@ -4188,11 +4245,11 @@
 	focus = {
 		id = AUS_protect_german_catholics
 		icon = GFX_focus_ger_oppose_hitler
-		x = 0
-		y = 3
+		x = -3
+		y = 4
 		relative_position_id = AUS_proclaim_new_republic
 		cost = 10
-		prerequisite = { focus = AUS_proclaim_new_republic }
+		prerequisite = { focus = AUS_proclaim_new_republic focus = AUS_integrate_italian_alps }
 		ai_will_do = {
 			factor = 1
 		}
@@ -4606,6 +4663,61 @@
 		completion_reward = {
 			custom_effect_tooltip = "Unlocks Decisions to Core Southern Germany"
 			set_cosmetic_tag = GERCAT
+		}
+	}
+	focus = {
+		id = AUS_saint_germain_remove
+		icon = GFX_focus_attack_germany
+		x = 22
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			remove_ideas = saint_germain
+		}
+	}
+	########################
+	## INDUSTRIAL GARBAGE ##
+	########################
+	focus = {
+		id = AUS_expand_steyr_works
+		icon = GFX_focus_attack_germany
+		x = 52
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			remove_ideas = saint_germain
 		}
 	}
 }	
