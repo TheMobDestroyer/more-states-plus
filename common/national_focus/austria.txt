@@ -336,9 +336,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			country_event = {
-				id = austria.3
-				days = 2
+			HUN = {
+				country_event = {
+					id = austria.3
+					days = 2
+				}
 			}
 		}
 	}

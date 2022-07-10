@@ -193,7 +193,7 @@ country_event = {
 		AUS = { country_event = { id = austria.7 } }
 	}
 }
-#country votes no - hungary
+#country votes no - austria
 country_event = {
 	id = austria.7
 	title = austria.7.t
@@ -313,12 +313,10 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		AUS = {
-			owns_state = 109
-			owns_state = 931
+			controls_state = 109
+			controls_state = 931
+			has_completed_focus = AUS_march_south
 		}
-	}
-	immediate = {
-		add_ideas = croatian_resistance
 	}
 	option = {
 		name = austria.10.a
